@@ -7,4 +7,4 @@ Zoe Gonzalez.(zoegonzalez461@gmail.com)
 Pet Shop Digital
 
 ##Descripcion:
-Nuestra pagina se trata de una tienda digital de mascotas, donde el usuario se podra registrar e interactuar con los productos.
+Nuestra pagina se trata de una tienda digital de mascotas, donde el usuario se podra registrarse interactuar con los productos.
