@@ -7,4 +7,4 @@ Zoe Gonzalez.(zoegonzalez461@gmail.com)
 Pet Shop Digital
 
 ##Descripcion:
-Nuestra pagina se trata de una tienda digital de mascotas, donde el usuario se podra registrarse interactuar con los productos.
+Planteamos dos tablas, una tabla usuarios con los datos personales de cada usuario, y la tabla compras, que contiene los datos de los distintos productos que ofrece el pet shop. Cada usuario podrá comprar diferentes productos mediante la pagina web que desarrollaremos.
