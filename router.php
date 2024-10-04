@@ -11,15 +11,15 @@
   
     switch ($parametros[0]) {
         //acciones publicas de la pagina 
-        case 'productos':
-             $controller = new ProductosController(); 
-             $controller->mostrarProductos();
-        break;
         case 'home':
             $controller = new ProductosController(); 
             $controller->mostrarProductosDestacados();
        break;
-
+       case 'productos':
+             $controller = new ProductosController(); 
+             $controller->mostrarProductos();
+        break;
+    
         default: 
             return null;
         break;

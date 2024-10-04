@@ -14,12 +14,17 @@
     }
 
     public function mostrarProductos(){
+        //Pedir a la db todos los productos
         $productos= $this->productosModel->traerTodos();
+        //Le paso a la vista los productos que recibo de la db
         $this->productosView->mostrarTodos($productos);
     }
 
     public function mostrarProductosDestacados(){
-        
+        //pedir a la db todos los productos destacados
+        $destacados= $this->productosModel->traerDestacados();
+        //le paso a la vista los productos destacados que recibo de la db
+        $this->productosView-> mostrarDestacados($destacados);
     
     }
   }
