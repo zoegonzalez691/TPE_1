@@ -32,12 +32,25 @@
          $db= $this->crearConexion();
 
          $arreglo= $db->prepare("SELECT * FROM productos WHERE destacado = 1");
-         $arreglo->excecute();
+         $arreglo->execute();
          $productosDestacados= $arreglo-> fetchAll(PDO::FETCH_OBJ);
 
          return $productosDestacados;
       }
 
+      public function TraerProductosCategoria($categoria){
+        $db = $this->crearConexion();
+        $sql = "SELECT * FROM productos WHERE 
+                  fk_categoria = '$categoria' ";
+         $query = $db->prepare($sql);
+         $query->execute();
+     
+         $productos = $query->fetchAll(PDO::FETCH_OBJ);
+     
+         return $productos;
+
+
+      }
 
 }
 

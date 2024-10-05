@@ -24,9 +24,20 @@
         //pedir a la db todos los productos destacados
         $destacados= $this->productosModel->traerDestacados();
         //le paso a la vista los productos destacados que recibo de la db
-        $this->productosView-> mostrarDestacados($destacados);
+      //  $this->productosView-> mostrarDestacados($destacados);
     
     }
+
+    public function VerProductosCategorias($Categoria){
+        $productos = $this->productosModel->TraerProductosCategoria($Categoria);
+        $this->productosView->MostrarProductos($Categoria, $productos);
+
+
+    }
+
+
+
+
   }
 
 

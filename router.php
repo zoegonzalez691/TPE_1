@@ -1,5 +1,7 @@
 <?php
     require_once "app/controllers/ProductosController.php";
+    require_once 'app/controllers/Categorias.controller.php';
+
     define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
     if (empty($_GET['action'])) {
@@ -18,8 +20,17 @@
        case 'productos':
              $controller = new ProductosController(); 
              $controller->mostrarProductos();
+             
         break;
-    
+        case 'categorias':
+            if (isset($params[1])){
+                $controller = new ProductosController(); 
+                $controller->VerProductosCategorias($params[1]);
+            } else{
+                $controller = new CategoriasController();
+                $controller->MostrarCategorias();
+            }
+        break;
         default: 
             return null;
         break;
