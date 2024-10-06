@@ -26,4 +26,18 @@ class CategoriasModel{
         return $categorias;
     }
 
+    public function TraerCategoria($id) {
+        $pdo = $this->CrearConexion();
+        $sql = "SELECT * FROM categorias WHERE id_categoria = :id";
+        $query = $pdo->prepare($sql);
+        $query->bindParam(':id', $id, PDO::PARAM_INT);
+        $query->execute();
+
+        $categoria = $query->fetch(PDO::FETCH_OBJ); // Retorna un solo objeto
+    
+        return $categoria;
+    }
+    
+        
+
 }

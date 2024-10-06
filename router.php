@@ -23,15 +23,14 @@
              
         break;
         case 'categorias':
-            if (isset($params[1])){
+            if (isset($parametros[1])){
                 $controller = new ProductosController(); 
-                $controller->VerProductosCategorias($params[1]);
+                $controller->VerProductosCategorias($parametros[1]);
             } else{
                 $controller = new CategoriasController();
                 $controller->MostrarCategorias();
             }
         break;
-        default: 
-            return null;
+        default:;
         break;
     }

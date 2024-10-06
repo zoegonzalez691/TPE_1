@@ -1,6 +1,5 @@
 <?php
    require_once 'libs/smarty/libs/Smarty.class.php';
-
    class ProductosView {
 
       private $smarty;
@@ -17,10 +16,10 @@
       //$this->smarty->assign('NombreVariable', valorVariable);
       //$this->display->display('nombreDelTemplate');
 
-      public function MostrarProductos($Categoria, $productos){
+      public function MostrarProductos($Categoria, $productos) {
          $this->smarty->assign('categoria', $Categoria);
          $this->smarty->assign('productos', $productos);
-         $this->smarty->display('productosCategorias.tpl');
-
-      }
+         $this->smarty->display('productosCategoria.tpl');
+     }
+     
 }

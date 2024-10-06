@@ -20,7 +20,14 @@ require_once 'app/views/Categorias.view.php';
             $this->view->ListadeCategorias($categorias);
         }
 
-
-
+        public function VerNombreCategoria($id) {
+            $categoria = $this->model->TraerCategoria($id);
+            if ($categoria) {
+                return $categoria->especie_animal;
+            } else {
+                return 'Sin nombre'; 
+            }
+        }
+        
 
     }
