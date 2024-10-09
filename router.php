@@ -18,9 +18,14 @@
             $controller->mostrarProductosDestacados();
        break;
        case 'productos':
+            if(isset($parametros[1])){
+                $controller= new ProductosController();
+                $controller-> mostrarProductoPorID($parametros[1]);
+            }
+            else{
              $controller = new ProductosController(); 
              $controller->mostrarProductos();
-             
+            }
         break;
         case 'categorias':
             if (isset($parametros[1])){
@@ -31,6 +36,7 @@
                 $controller->MostrarCategorias();
             }
         break;
+        
         default:;
         break;
     }

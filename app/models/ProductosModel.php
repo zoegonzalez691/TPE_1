@@ -31,11 +31,24 @@
       public function traerDestacados(){
          $db= $this->crearConexion();
 
-         $arreglo= $db->prepare("SELECT * FROM productos WHERE destacado = 1");
-         $arreglo->execute();
+         $arreglo= $db->prepare("SELECT * FROM productos WHERE destacado = ?");
+         $arreglo->execute([1]);
          $productosDestacados= $arreglo-> fetchAll(PDO::FETCH_OBJ);
 
          return $productosDestacados;
+      }
+
+      public function traerPorID($id){
+         $db= $this->crearConexion();
+         $sentencia= $db->prepare("SELECT productos.*, categorias.especie_animal AS categoria
+                                   FROM productos 
+                                   JOIN categorias 
+                                   ON productos.fk_categoria=id_categoria
+                                   WHERE id_producto= ?");
+         $sentencia->execute([$id]);
+         $producto= $sentencia->fetch(PDO::FETCH_OBJ);
+
+         return $producto;
       }
 
       public function TraerProductosCategoria($categoria){

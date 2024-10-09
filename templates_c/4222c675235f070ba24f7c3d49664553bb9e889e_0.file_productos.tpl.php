@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 5.4.1, created on 2024-10-05 01:08:34
+/* Smarty version 5.4.1, created on 2024-10-08 16:43:23
   from 'file:productos.tpl' */
 
 /* @var \Smarty\Template $_smarty_tpl */
 if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
   'version' => '5.4.1',
-  'unifunc' => 'content_670075725fcc97_15165487',
+  'unifunc' => 'content_6705450b0626a4_10400699',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4222c675235f070ba24f7c3d49664553bb9e889e' => 
     array (
       0 => 'productos.tpl',
-      1 => 1728082440,
+      1 => 1728398593,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->getCompiled()->isFresh($_smarty_tpl, array (
     'file:footer.tpl' => 1,
   ),
 ))) {
-function content_670075725fcc97_15165487 (\Smarty\Template $_smarty_tpl) {
+function content_6705450b0626a4_10400699 (\Smarty\Template $_smarty_tpl) {
 $_smarty_current_dir = 'C:\\xamppp\\htdocs\\web_2\\TPE_1\\templates';
 ?>    <?php $_smarty_tpl->renderSubTemplate('file:header.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), (int) 0, $_smarty_current_dir);
 ?>
@@ -34,7 +34,8 @@ $foreach0DoElse = false;
 ?>
 		<ul>
 			<li><?php echo $_smarty_tpl->getValue('producto')->nombre;?>
-</li>
+ <a href="productos/<?php echo $_smarty_tpl->getValue('producto')->id_producto;?>
+">Ver mas</a></li>
 			<li><?php echo $_smarty_tpl->getValue('producto')->descripcion;?>
 </li>
             <li><?php echo $_smarty_tpl->getValue('producto')->imagen;?>
