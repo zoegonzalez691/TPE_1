@@ -16,7 +16,7 @@ class UsersView{
     }
 
     function InicioSesion(){
-        $this->smarty->display();
+        $this->smarty->display('usuarios.tpl');
     }
 
 }

@@ -1,6 +1,7 @@
 <?php
     require_once "app/controllers/ProductosController.php";
     require_once 'app/controllers/Categorias.controller.php';
+    require_once 'app/controllers/Users.controllers.php';
 
     define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -35,6 +36,10 @@
                 $controller = new CategoriasController();
                 $controller->MostrarCategorias();
             }
+        break;
+        case 'iniciosesion':
+            $controller = new UsersController();
+            $controller->VerUsuario();
         break;
         
         default:;

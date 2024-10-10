@@ -1,4 +1,4 @@
-include {'header.tpl'}
+{include 'header.tpl'}
 
 <form>
 <h1> Iniciar Sesion</h1>
@@ -9,4 +9,4 @@ include {'header.tpl'}
 
 
 
-include {'footer.tpl'}
+{include 'footer.tpl'}

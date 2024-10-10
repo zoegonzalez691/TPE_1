@@ -1,17 +1,20 @@
 <?php
-require_once 'config/config.php';
    class ProductosModel {
 
       //Crea la conexión a la DB
     private function crearConexion () {
   
       try {
-          $pdo = new PDO("mysql:host=dbHost;dbname=dbName;charset=utf8", User, Password);
+         $db =
+         new PDO(
+         "mysql:host=".dbHost.
+         ";dbname=".dbName.";charset=utf8", 
+         User, Password);
       } catch (\Throwable $th) {
           die($th);
       }
 
-      return $pdo;
+      return $db;
   }
 
       public function traerTodos(){
