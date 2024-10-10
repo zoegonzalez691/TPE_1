@@ -1,16 +1,12 @@
 <?php
+require_once 'config/config.php';
    class ProductosModel {
 
       //Crea la conexión a la DB
     private function crearConexion () {
-
-      $host = 'localhost';
-      $user = 'root';
-      $password = '';
-      $database = 'pet_shop';
   
       try {
-          $pdo = new PDO("mysql:host=$host;dbname=$database;charset=utf8", $user, $password);
+          $pdo = new PDO("mysql:host=dbHost;dbname=dbName;charset=utf8", User, Password);
       } catch (\Throwable $th) {
           die($th);
       }

@@ -4,15 +4,18 @@ require_once 'config/config.php';
 
 class CategoriasModel{
 
-    protected $db;
-    
     private function CrearConexion(){
-        $this->db = new PDO(
+        try{
+        $db =
+            new PDO(
             "mysql:host=".dbHost.
             ";dbname=".dbName.";charset=utf8", 
             User, Password);
+        }catch(\Throwable $th) {
+            die($th);
+        }
 
-        return $this->db;
+        return $db;
     }
 
     public function getCategorias(){

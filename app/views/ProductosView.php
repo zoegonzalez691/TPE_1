@@ -6,6 +6,8 @@
 
       public function __construct(){
          $this->smarty = new Smarty\Smarty;
+         $this->smarty->assign("base", BASE_URL);
+
       }
 
       public function mostrarTodos($productos){
