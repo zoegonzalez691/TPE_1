@@ -15,6 +15,10 @@ class UsersController{
         
     }
 
+    function VerUsuario(){
+        $this->view->InicioSesion();
+      
+    }
 
 
 
