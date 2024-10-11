@@ -41,6 +41,10 @@
             $controller = new UsersController();
             $controller->VerUsuario();
         break;
+        case 'autenticar':
+            $controller = new UsersController();
+            $controller->autenticarUsuario();
+        break;
         
         default:;
         break;

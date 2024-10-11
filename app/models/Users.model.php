@@ -18,6 +18,22 @@ class UsersModel{
         return $db;
     }
 
+    public function GetUsuario($nombre) {
+        $pdo = $this->CrearConexion();
+        $sql = "SELECT * FROM usuarios WHERE nombre = ?";
+        $query = $pdo->prepare($sql);
+        $query->execute([$nombre]);
+    
+        $usuario = $query->fetch(PDO::FETCH_OBJ);
+    
+        return $usuario; 
     
 
+
+
+    }
+
 }
+
+    
+

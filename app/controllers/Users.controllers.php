@@ -20,6 +20,19 @@ class UsersController{
       
     }
 
+    public function autenticarUsuario(){
+        $nombre = $_REQUEST['nombre'];
+        $contraseña = $_REQUEST['password'];
+    
+        $usuario = $this->model->GetUsuario($nombre);
+    
+        if ($usuario && password_verify($contraseña, $usuario->contraseña)) {
+            echo "inicio exitoso";
+        } else {
+            echo "no se pudo autenticar";
+        }
+    }
+    
 
 
 
