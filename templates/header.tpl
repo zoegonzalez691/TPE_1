@@ -14,7 +14,7 @@
            <a href="home"> <li>Destacados</li></a>
            <a href="categorias"> <li>Categorias</li></a>
            <a href="productos"> <li>Mas Productos</li></a>
-           <a href="iniciosesion"> <li>Iniciar Sesion</li></a>
+           <a href="iniciosesion"> <li>Iniciar sesión</li></a>
         </ul>
     </header>
 

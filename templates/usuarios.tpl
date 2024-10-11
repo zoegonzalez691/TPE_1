@@ -1,9 +1,10 @@
 {include 'header.tpl'}
 
-<form>
+<form method="POST">
 <h1> Iniciar Sesion</h1>
 <input type="text" placeholder="Nombre de usuario"></input>
 <input type="password" placeholder="Contraseña"></input>
+<input type="submit"></input>
 
 
 
