@@ -1,6 +1,6 @@
 {include 'header.tpl'}
 
-<form method="GET" action = autenticar>
+<form method="POST" action = autenticar>
 <h1> Iniciar Sesion</h1>
 <label>Nombre de Usuario</label>
 <input name="nombre" type="text" placeholder="Nombre de usuario"></input>

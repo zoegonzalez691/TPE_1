@@ -4,7 +4,7 @@
     require_once 'app/controllers/Users.controllers.php';
 
     define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
-
+    define("VER",'BASE_URL' . 'ver');
     if (empty($_GET['action'])) {
         $_GET['action'] = 'home';
     } 
