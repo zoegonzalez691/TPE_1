@@ -2,9 +2,11 @@
     require_once "app/controllers/ProductosController.php";
     require_once 'app/controllers/Categorias.controller.php';
     require_once 'app/controllers/Users.controllers.php';
+    require_once 'app/controllers/Administrador.controller.php';
+
 
     define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
-    define("VER",'BASE_URL' . 'ver');
+   
     if (empty($_GET['action'])) {
         $_GET['action'] = 'home';
     } 
@@ -45,6 +47,18 @@
             $controller = new UsersController();
             $controller->autenticarUsuario();
         break;
+        case'panel':
+            if(isset($parametros[1])){
+              if($parametros[1]== 'productos'){
+                $controller= new AdministradorController();
+                $controller-> administrarProductos();
+              }
+            }
+            else{
+            $controller = new AdministradorController();
+            $controller-> mostrarPanel();
+            }
+        break;    
         
         default:;
         break;
