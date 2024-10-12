@@ -1,6 +1,9 @@
 body{
-    background-color: rgb(191, 122, 255);
+    background-image: url(../fondo.jpg);
 }
+
+/*header*/
+
 #titulo_principal{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: rgb(159, 231, 231);
@@ -9,15 +12,31 @@ body{
 .headerpagina{
     display: flex;
     background-color: black;
-    justify-content: space-around;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0%s;
+    
 }
-.navegador{
-    display: flex;
+a{
+    text-decoration: none;
 }
 .navegador li{
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 350px;
+    margin-right: 50px;
     margin-bottom: 0px;
-    background-color: antiquewhite;
-    
+    color: white;
+}
+.navegador li:hover{
+    background-color: rgb(159, 231, 231);
+    color: black;
+
+}
+ul{
+    list-style-type: none;
+}
+.mostrar{
+    background-color: white;
+    margin-top: 0%;
+    display: flex;
+    justify-content: center;
 }

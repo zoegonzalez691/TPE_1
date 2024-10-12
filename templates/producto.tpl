@@ -1,4 +1,5 @@
 {include 'header.tpl'}
+<div class="mostrar">
         <ul>
 			<li>{$producto->nombre} </li>
 			<li>{$producto->descripcion}</li>
@@ -9,6 +10,7 @@
             <li>{$producto->categoria}</li>
 
         </ul>
+    </div>
 
 
 

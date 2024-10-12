@@ -1,5 +1,6 @@
 {include 'header.tpl'}
 {foreach item=categoria from=$categorias}
+<div class="mostrar">
  <section>
         <ul>
             <a href="categorias/{$categoria->id_categoria}">
@@ -7,6 +8,7 @@
             </a>
         </ul>
     </section>
+</div>
 
     {/foreach}
 
