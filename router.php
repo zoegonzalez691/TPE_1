@@ -49,16 +49,46 @@
         break;
         case'panel':
             if(isset($parametros[1])){
-              if($parametros[1]== 'productos'){
-                $controller= new AdministradorController();
-                $controller-> administrarProductos();
-              }
+                if($parametros[1]== 'productos'){
+                    //aca es panel/productos
+                    if(isset($parametros[2])){
+                        //panel/productos/ID/editar 
+                        if($parametros[3]== 'editar'){
+                            $controller= new AdministradorController();
+                            $controller-> editarProducto($parametros[2]);
+                        }
+                        //panel/productos/ID/eliminar 
+                        else if ($parametros[3]== 'eliminar'){
+                            $controller= new AdministradorController();
+                            $controller-> eliminarProducto($parametros[2]);
+                        }
+                        //panel/productos/agregar
+                        else if($parametros[2]== 'agregar'){
+                            if($parametros[3]== 'formulario'){
+                                $controller= new AdministradorController();
+                                $controller-> mostrarFormularioAgregar();
+                            }
+                            else if($parametros[3]== 'guardar'){
+                            $controller= new AdministradorController();
+                            $controller-> agregarProducto();
+                            }
+                        }
+
+                    }
+                    //cuando es solo /panel/productos
+                    else{
+                        $controller= new AdministradorController();
+                        $controller-> administrarProductos(); 
+                    }
+                }
             }
+            //cuando es solo /panel
             else{
             $controller = new AdministradorController();
             $controller-> mostrarPanel();
             }
-        break;    
+        break; 
+        
         
         default:;
         break;
