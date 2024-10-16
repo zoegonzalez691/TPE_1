@@ -16,7 +16,7 @@
            {foreach item=producto from=$productos}
            <tr>   
                <td>{$producto->nombre} <a href="productos/{$producto->id_producto}">Ver mas</a></td>
-               <td><button>Editar</button></td>
+               <td><a href="panel/productos/{$producto-> id_producto}/editar"><button>Editar</button></a></td>
                <td><a href="panel/productos/{$producto-> id_producto}/eliminar"><button>Eliminar</button></a></td>
            </tr>
            {/foreach}

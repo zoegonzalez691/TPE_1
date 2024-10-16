@@ -22,7 +22,7 @@
       <option value="{$categoria->id_categoria}">{$categoria->especie_animal} </option>
       {/foreach}
     </selec>
-  <a href=""<input type="submit" value="Guardar">
+  <a href="panel/productos/guardar"<input type="submit" value="Guardar">
 
 
 

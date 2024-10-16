@@ -40,11 +40,7 @@ public function administrarProductos(){
     $this-> view-> mostrarProductos($productos);
 }
 
-public function  editarProducto($id){
-    //deberia hacer un formulario para que el admin ingrese los datos que quiere editar
-    $producto= $this-> model-> editarPorID($id);
-    $this->view-> mostrarEditado($producto);
-}
+
 
 public function eliminarProducto($id){
     $this-> model-> eliminarPorID($id);
@@ -55,20 +51,43 @@ public function eliminarProducto($id){
 public function  mostrarFormularioAgregar(){
     $categorias= $this-> modelCategoria -> getCategorias();
     $this-> view-> mostrarFormularioAgregar($categorias);
+  
+}
+
+public function agregarProducto(){
     $nombre = $_REQUEST['especie_animal'];
     $descripcion = $_REQUEST['descripcion'];
     $categoria = $_REQUEST['fk_categoria'];
     $imagen = $_REQUEST['imagen'];
-    $this->model->guardarProducto($nombre,$descripcion,$categoria,$imagen);
+    $productoNuevo= $this->model->guardarProducto($nombre,$descripcion,$imagen,$categoria);
+    $this->view->mostrarProductos($productoNuevo);
     header('Location:'.BASE_URL.'panel/productos');
-
-
 }
 
-public function agregarProducto(){
-    $productoAgregado= $this-> model-> agregarProducto();
-    $this->view-> mostrarProductoNuevo($productoAgregado);
+public function editarProducto($id){
+    $categorias= $this-> modelCategoria -> getCategorias();
+    $producto = $this->model->traerPorID($id);
+    $this->view->mostrarFormularioEditar($producto,$categorias);
 }
+
+ //   //Modifica una tarea
+   // public function modificar(){
+     //   $this->checkLogin();
+
+
+        //Tomo datos del formulario
+       // $id = $_REQUEST['id'];
+        //$descripcion = $_REQUEST['descripcion'];
+        //$terminada = $_REQUEST['terminada'];
+        //$prioridad = $_REQUEST['prioridad'];
+
+        //Envío datos al modelo
+       // $this->model->updateTask($descripcion, $terminada, $prioridad, $id);
+        
+        //Redirecciono
+        //header('Location: ' . BASE_URL . 'home');
+   // }
+
 
 
 }

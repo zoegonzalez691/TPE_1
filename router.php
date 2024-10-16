@@ -55,7 +55,7 @@
                         //panel/productos/ID/editar 
                         if($parametros[3]== 'editar'){
                             $controller= new AdministradorController();
-                            $controller-> editarProducto($parametros[2]);
+                            $controller->editarProducto($parametros[2]);
                         }
                         //panel/productos/ID/eliminar 
                         else if ($parametros[3]== 'eliminar'){
