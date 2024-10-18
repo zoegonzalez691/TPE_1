@@ -1,7 +1,6 @@
     {include 'header.tpl'}
     
     <h1> Panel para administrar los productos</h1>
-<<<<<<< HEAD
 	{foreach item=producto from=$productos}
     <div class="mostrar">
 		<ul>
@@ -15,7 +14,6 @@
         </ul>
     </div>
     {/foreach}
-=======
     <a href="panel/productos/agregar/formulario"><button> Agregar Producto</button></a>
 
 <div class="mostrar">
@@ -38,5 +36,4 @@
      </table>   
 </div>
   
->>>>>>> 7d85a0628f38ac7fbc6df681f62939488bfcb373
     {include 'footer.tpl'}

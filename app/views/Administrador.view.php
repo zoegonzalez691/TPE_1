@@ -35,6 +35,11 @@ class AdministradorView{
         $this->smarty->display('formularioEditar.tpl');    
 
     }
+
+    public function mostrarAdminProductos(){
+        $this->smarty->display('administrarProductos.tpl');
+
+    }
 }
   
 

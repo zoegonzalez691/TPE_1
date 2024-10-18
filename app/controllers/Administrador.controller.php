@@ -1,12 +1,13 @@
 <?php
 require_once 'app/views/Administrador.view.php';
-require_once 'app/models/ProductosModel.php';
+require_once 'app/controllers/ProductosController.php';
 require_once 'app/models/Categorias.model.php';
+require_once 'app/models/Administrador.model.php';
 class AdministradorController{
 
 private $model;
 private $view;
-private $modelCategoria;
+
 
 private function estaLogueado(){
     session_start();
@@ -25,19 +26,21 @@ private function estaLogueado(){
 
 public function __construct(){
     $this->modelCategoria = new CategoriasModel();
-    $this->model = new ProductosModel();
+    $this->controllerProductos = new ProductosController();
     $this->view = new AdministradorView();
+    $this->model= new AdministradorModel();
 }
 
 
 
 public function mostrarPanel(){
+    $this->estaLogueado();
     $this->view->mostrarPanel();
 }
 
 public function administrarProductos(){
-    $productos= $this-> model-> traerTodos();
-    $this-> view-> mostrarProductos($productos);
+      $this->estaLogueado();
+      $this->view->mostrarAdminProductos();
 }
 
 
@@ -45,8 +48,7 @@ public function administrarProductos(){
 public function eliminarProducto($id){
     $this-> estaLogueado();
     $this-> model-> eliminarPorID($id);
-    //mostrar la misma seccion donde estaba con view
-    header("Location: " . BASE_URL . 'panel/productos');
+    $this->view-> mostrarAdminProductos();
 }
 
 
@@ -96,9 +98,6 @@ public function editarProducto($id){
 
 
 }
-
-//Categorias 
-
 
 
 

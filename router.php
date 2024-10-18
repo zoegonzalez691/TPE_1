@@ -49,7 +49,6 @@
         break;
         case'panel':
             if(isset($parametros[1])){
-<<<<<<< HEAD
               if($parametros[1]== 'productos'){
                 $controller= new AdministradorController();
                 $controller-> administrarProductos();
@@ -57,7 +56,6 @@
                 $controller = new AdministradorController();
                 $controller->administrarCat();
               }
-=======
                 if($parametros[1]== 'productos'){
                     //aca es panel/productos
                     if(isset($parametros[2])){
@@ -90,14 +88,12 @@
                         $controller-> administrarProductos(); 
                     }
                 }
->>>>>>> 7d85a0628f38ac7fbc6df681f62939488bfcb373
             }
             //cuando es solo /panel
             else{
             $controller = new AdministradorController();
             $controller-> mostrarPanel();
             }
-<<<<<<< HEAD
         break;    
         case 'logout':
             $controller = new UsersController();
@@ -131,11 +127,9 @@
             $controller = new CategoriasController();
             $controller->subirDatos();
         break;
-=======
         break; 
         
         
->>>>>>> 7d85a0628f38ac7fbc6df681f62939488bfcb373
         default:;
         break;
     }
