@@ -20,5 +20,22 @@ class AdministradorView{
         $this->smarty->assign('productos', $productos);
         $this->smarty->display('administrarProductos.tpl');    
     }
+
+    public function mostrarEliminado(){
+        $this->smarty-> display('panelAdministrador.tpl');
+    }
+
+    public function  mostrarFormularioAgregar($categorias){
+        $this->smarty->assign('categorias', $categorias);
+        $this->smarty->display('formularioAgregar.tpl');
+    }
+    
+    public function mostrarFormularioEditar($producto,$categorias){
+        $this->smarty->assign('producto',$producto,'categorias',$categorias);
+        $this->smarty->display('formularioEditar.tpl');    
+
+    }
 }
+  
+
 

@@ -6,9 +6,7 @@
             <li>{$producto->imagen}</li>
             <li>{$producto->fk_categoria}</li>
             <li>{$producto->precio}</li>
-            <li>{$producto->imagen}</li>
             <li>{$producto->categoria}</li>
-
         </ul>
     </div>
 
