@@ -8,6 +8,19 @@
      private $productosView; 
      private $CategoriaController;
 
+     private function checkLogin(){
+      session_start();
+      if(!isset($_SESSION['ID_USER'])){
+          return false;
+      }
+      else {
+          
+          return true;
+      }
+
+
+  }
+
     public function __construct(){
         $this->productosModel = new ProductosModel();
         $this->productosView = new ProductosView();
@@ -22,10 +35,11 @@
     }
 
     public function mostrarProductosDestacados(){
+        $logueado = $this->checkLogin();
         //pedir a la db todos los productos destacados
         $destacados= $this->productosModel->traerDestacados();
         //le paso a la vista los productos destacados que recibo de la db
-        $this->productosView-> mostrarDestacados($destacados);
+        $this->productosView-> mostrarDestacados($destacados, $logueado);
     
     }
 
@@ -41,6 +55,18 @@
       $CategoriaName = $this->CategoriaController->VerNombreCategoria($Categoria);
       $this->productosView->MostrarProductos($CategoriaName, $productos);
       
+  }
+
+  public function BotonDeSesion(){
+        $this->checkLogin();
+
+        if(isset($_SESSION['NAME'])){
+        $this->productosView->mostrarBoton($_SESSION['NAME']);
+
+        }
+
+        header('location:'. 'home');
+    
   }
   
 

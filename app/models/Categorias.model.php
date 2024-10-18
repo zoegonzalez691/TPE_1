@@ -41,6 +41,44 @@ class CategoriasModel{
         return $categoria;
     }
     
+    public function EncontrarCategoriaByName($nombreCat){
+        $pdo = $this->CrearConexion();
+        $sql = "SELECT * FROM categorias WHERE especie_animal = :nombreCat";
+        $query = $pdo->prepare($sql);
+        $query->bindParam(':nombreCat', $nombreCat);
+        $query->execute();
+
+        $categoria = $query->fetch(PDO::FETCH_OBJ);
+
+        return $categoria;
+    
+    }
+
+    public function ModificarCat($id, $especie_animal, $descripcion){
+        $pDO = $this->crearConexion();
+        $sql = 'UPDATE categoria SET especie_animal = ?, descrpcion = ? WHERE id = ?';
+        $query = $pDO->prepare($sql);
+        $query->execute([$especie_animal, $descripcion, $id]);
+        
+    }
+
+    public function eliminarCategoria($id){
+        $pdo = $this->CrearConexion();
+        $sql = 'DELETE FROM categorias WHERE id = ?';
+        $query = $pdo->prepare($sql);
+        $query->execute($id);
+
+
+    }
+
+    public function crearCategoria($nombre, $descripcion){
+        $pdo = $this->CrearConexion();
+        $sql = 'INSERT INTO categorias (especie_animal, descripcion) VALUES (? , ?)';
+        $query = $pdo->prepare($sql);
+        $query->execute([$nombre, $descripcion]);
+           
+    }
+    
         
 
 }

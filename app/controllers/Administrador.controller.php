@@ -39,4 +39,25 @@ public function administrarProductos(){
 
 }
 
+//Categorias 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>
