@@ -43,18 +43,22 @@ public function administrarProductos(){
 
 
 public function eliminarProducto($id){
+    $this-> estaLogueado();
     $this-> model-> eliminarPorID($id);
+    //mostrar la misma seccion donde estaba con view
     header("Location: " . BASE_URL . 'panel/productos');
 }
 
 
 public function  mostrarFormularioAgregar(){
+    $this-> estaLogueado();
     $categorias= $this-> modelCategoria -> getCategorias();
     $this-> view-> mostrarFormularioAgregar($categorias);
   
 }
 
 public function agregarProducto(){
+    $this-> estaLogueado();
     $nombre = $_REQUEST['especie_animal'];
     $descripcion = $_REQUEST['descripcion'];
     $categoria = $_REQUEST['fk_categoria'];
@@ -65,6 +69,7 @@ public function agregarProducto(){
 }
 
 public function editarProducto($id){
+    $this-> estaLogueado();
     $categorias= $this-> modelCategoria -> getCategorias();
     $producto = $this->model->traerPorID($id);
     $this->view->mostrarFormularioEditar($producto,$categorias);
