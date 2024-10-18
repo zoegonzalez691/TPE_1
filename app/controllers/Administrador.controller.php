@@ -97,4 +97,25 @@ public function editarProducto($id){
 
 }
 
+//Categorias 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>

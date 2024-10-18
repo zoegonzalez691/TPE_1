@@ -24,14 +24,21 @@
          $this->smarty->display('productosCategoria.tpl');
      }
 
-     public function  mostrarDestacados($destacados){
+     public function  mostrarDestacados($destacados, $logueado){
         $this->smarty->assign('destacados',$destacados);
+        $this->smarty->assign('logged',$logueado);
         $this->smarty->display('destacados.tpl');
      }
 
      public function mostrarProductoPorID($producto){
         $this->smarty->assign('producto',$producto);
         $this->smarty->display('producto.tpl');
+
+     }
+
+     public function mostrarBoton(){
+         $this->smarty->assign('nombre', ($_SESSION['NAME']));
+         $this->smarty->display('destacados.tpl');
 
      }
 

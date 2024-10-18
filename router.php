@@ -39,7 +39,7 @@
                 $controller->MostrarCategorias();
             }
         break;
-        case 'iniciosesion':
+        case 'login':
             $controller = new UsersController();
             $controller->VerUsuario();
         break;
@@ -49,6 +49,15 @@
         break;
         case'panel':
             if(isset($parametros[1])){
+<<<<<<< HEAD
+              if($parametros[1]== 'productos'){
+                $controller= new AdministradorController();
+                $controller-> administrarProductos();
+              }else if($parametros[1] == 'categorias'){
+                $controller = new AdministradorController();
+                $controller->administrarCat();
+              }
+=======
                 if($parametros[1]== 'productos'){
                     //aca es panel/productos
                     if(isset($parametros[2])){
@@ -81,15 +90,52 @@
                         $controller-> administrarProductos(); 
                     }
                 }
+>>>>>>> 7d85a0628f38ac7fbc6df681f62939488bfcb373
             }
             //cuando es solo /panel
             else{
             $controller = new AdministradorController();
             $controller-> mostrarPanel();
             }
+<<<<<<< HEAD
+        break;    
+        case 'logout':
+            $controller = new UsersController();
+            $controller->cerrarSesion();
+        break;
+        case 'ElegirCat':
+            $controller = new CategoriasController();
+            $controller->EncontrarCategoria();
+        break;
+        case 'ModificarCategoria':
+            if(isset($parametros[1])){
+                $controller = new CategoriasController();
+                $this->controller->modificarCategoria($parametros[1]);
+            }
+        break;
+        case 'ModificarDatos':
+            $controller = new CategoriasController();
+            $this->controller->ModificarDatos();
+        break;
+        case 'EliminarCategoria':
+            if(isset ($parametros[1])){
+                $controller = new CategoriasController();
+                $this->controller->eliminarCategoria($parametros[1]);
+            }
+        break;
+        case 'AgregarCategoria':
+            $controller = new CategoriasController();
+            $controller->añadirCategoria();
+        break;
+        case 'SubirDatos':
+            $controller = new CategoriasController();
+            $controller->subirDatos();
+        break;
+=======
         break; 
         
         
+>>>>>>> 7d85a0628f38ac7fbc6df681f62939488bfcb373
         default:;
         break;
     }

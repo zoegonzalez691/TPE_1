@@ -12,11 +12,10 @@
 <header class="headerpagina">
         <h1 id="titulo_principal">Pet Shop</h1>
         <ul class="navegador">
-           <a href="home"> <li>Destacados</li></a>
-           <a href="categorias"> <li>Categorias</li></a>
-           <a href="productos"> <li>Mas Productos</li></a>
-           <a href="iniciosesion"> <li>Iniciar sesión</li></a>
-        </ul>
+           <a href="home"><li>Destacados</li></a>
+           <a href="categorias"><li>Categorias</li></a>
+           <a href="productos"><li>Mas Productos</li></a>
+        </ul>  
     </header>
   
 
