@@ -77,32 +77,25 @@
         break;
         case 'eliminarProducto':
             $controller= new AdministradorController();
-
-            if(isset($parametros[1])){
+             if(isset($parametros[1])){
                 $controller-> eliminarProducto($parametros[1]);
             }
         break;
         case 'editarProducto':
-        $controller= new AdministradorController();
-        $controller->editarProducto($parametros[1]);
+             if(isset($parametros[1])){
+                $controller= new AdministradorController();
+                $controller->editarProducto($parametros[1]);
+        }
         break;
-        case 'logout':
-            $controller = new UsersController();
-            $controller->cerrarSesion();
-<<<<<<< HEAD
-          //  else{
-            //$controller = new AdministradorController();
-            //$controller-> mostrarPanel();
-            //}
-=======
->>>>>>> 2ea999330455eff6cadfd3cb901b57f3c9d55d95
-        break;    
+        case 'guardarCambios':
+            $controller= new AdministradorController();
+            $controller->guardarCambiosProducto();
+      
         case 'ModificarCategoria':
             if(isset ($parametros[1])){
                 $controller = new AdministradorController();
                 $controller->ModificarCategoria($parametros[1]);
             };
-<<<<<<< HEAD
         break;
         case 'eliminarCat':
             $controller = new AdministradorController();
@@ -123,8 +116,6 @@
         case 'ModificarDatos':
             $controller = new CategoriasController();
             $this->controller->ModificarDatos();
-=======
->>>>>>> 2ea999330455eff6cadfd3cb901b57f3c9d55d95
         break;
         case 'EliminarCategoria':
             if(isset($parametros[1])){
@@ -144,7 +135,6 @@
         case 'agregar':
             $controller = new AdministradorController();
             $controller->añadirCategoria();
-<<<<<<< HEAD
         break;
         case 'SubirDatos':
             $controller = new CategoriasController();
@@ -153,10 +143,3 @@
        
     }
 ?>
-=======
-        break;       
-        default:;
-        break;
-    
-}
->>>>>>> 2ea999330455eff6cadfd3cb901b57f3c9d55d95

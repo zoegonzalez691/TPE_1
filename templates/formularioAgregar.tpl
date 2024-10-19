@@ -3,8 +3,8 @@
 <h1>Formulario para agregar un producto</h1>
 
 <form action="guardarProducto" method="POST" > 
-  <label for="especie_animal"> Nombre </label> 
-    <input name="especie_animal" type="text">
+  <label for="nombre"> Nombre </label> 
+    <input name="nombre" type="text">
 
    <label for="descripcion"> Descripcion </label> 
     <input name="descripcion" type="text">

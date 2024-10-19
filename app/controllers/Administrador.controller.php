@@ -1,27 +1,15 @@
 <?php
 require_once 'app/views/Administrador.view.php';
-<<<<<<< HEAD
 require_once 'app/controllers/ProductosController.php';
 require_once 'app/controllers/Categorias.controller.php';
-require_once 'app/models/Administrador.model.php';
 
 
-
-=======
-require_once 'app/controllers/Categorias.controller.php';
-require_once 'app/controllers/ProductosController.php';
-require_once 'app/models/Administrador.model.php';
->>>>>>> 2ea999330455eff6cadfd3cb901b57f3c9d55d95
 class AdministradorController{
 
 private $model;
 private $view;
 private $categoriaController;
-<<<<<<< HEAD
 private $productoController;
-=======
-private $controllerProductos;
->>>>>>> 2ea999330455eff6cadfd3cb901b57f3c9d55d95
 
 
 private function estaLogueado(){
@@ -42,7 +30,7 @@ public function __construct(){
     $this->categoriaController = new CategoriasController();
     $this->controllerProductos = new ProductosController();
     $this->view = new AdministradorView();
-    $this->model= new AdministradorModel();
+    
 }    
     
 public function mostrarPanel(){
@@ -56,7 +44,9 @@ public function administrarProductos(){
 }
 
 public function eliminarProducto($id){
-     $this-> model-> eliminarPorID($id);
+    $this->estaLogueado();
+    $this-> controllerProductos-> eliminarPorID($id);
+     header('Location:' . BASE_URL . 'panel/productos');
 }   
    
 
@@ -68,18 +58,34 @@ public function  mostrarFormularioAgregar(){
 }
 
 public function agregarProducto(){
-    $nombre = $_POST['especie_animal'];
+    $this->estaLogueado();
+    $nombre = $_POST['nombre'];
     $descripcion = $_POST['descripcion'];
     $categoria = $_POST['fk_categoria'];
+    $precio= $_POST['precio'];
+    $destacado= $_POST['destacado'];
     $imagen = $_POST['imagen'];
-    $productoNuevo= $this->model->guardarProducto($nombre,$descripcion,$imagen,$categoria);
+    $productoNuevo= $this->controllerProductos->guardarProducto($nombre,$descripcion,$precio,$destacado,$imagen,$categoria);
     $this->controllerProductos->mostrarProductos($productoNuevo);
+}
+
+public function guardarCambiosProducto(){
+    $this->estaLogueado();
+    $nombre = $_POST['nombre'];
+    $descripcion = $_POST['descripcion'];
+    $categoria = $_POST['fk_categoria'];
+    $precio= $_POST['precio'];
+    $destacado= $_POST['destacado'];
+    $imagen = $_POST['imagen'];
+    $id= $_POST['id_producto'];
+    $cambios= $this->controllerProductos->guardarCambios($nombre,$descripcion,$precio,$destacado,$imagen,$categoria,$id);
+    $this->controllerProductos->mostrarProductos();
 }
 
 public function editarProducto($id){
     $this-> estaLogueado();
     $categorias= $this->categoriaController->TraerCategorias();
-    $producto = $this->model->traerPorID($id);
+    $producto = $this->controllerProductos->traerProductoID($id);
     $this->view->mostrarFormularioEditar($producto,$categorias);
 }
 
@@ -95,85 +101,5 @@ public function ModificarCategoria($categoria){
     $categoria = $this->model->TraerCategoria($categoria);
     $this->view->Modificarcategoria($categoria);
 }
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-<<<<<<< HEAD
-=======
-    public function ModificarCategoria($categoria){
-        $this->estaLogueado();
-        $categoria = $this->categoriaController->TraerCategoria($categoria);
-        $this->view->Modificarcategoria($categoria);
-    }
-
-    public function EnviarDatos() {
-        $this->estaLogueado();
-    
-        $id = $_REQUEST['id'];
-        $nombre = $_REQUEST['nombre'];
-        $descripcion = $_REQUEST['descripcion'];
-    
-        $this->categoriaController->confirmarmodificacion($id, $nombre, $descripcion);
-    
-        header('location:' . 'panel');
-    }
-
-    public function EliminarCategoria($categoria){
-        $this->estaLogueado();
-        $mensaje =  $this->categoriaController->EliminarCategoria($categoria);
-
-        $this->view->MensajeEliminar();
-
-    }
-
-    public function crearCategoria(){
-        $this->view->mostrarFormulario();
-    }
-
-    public function añadirCategoria(){
-        $this->estaLogueado();
-
-        $nombre = $_REQUEST['nombre'];
-        $descripcion = $_REQUEST['descripcion'];
-
-        $mensaje = $this->categoriaController->añadirCategoria($nombre, $descripcion);
-        $this->view->MensajeAñadir($mensaje);
-        
-    }
-    
->>>>>>> 2ea999330455eff6cadfd3cb901b57f3c9d55d95
-    
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ?>

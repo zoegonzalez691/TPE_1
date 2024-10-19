@@ -27,7 +27,8 @@ class AdministradorView{
     }
     
     public function mostrarFormularioEditar($producto,$categorias){
-        $this->smarty->assign('producto',$producto,'categorias',$categorias);
+        $this->smarty->assign('producto',$producto);
+        $this->smarty->assign('categorias',$categorias);
         $this->smarty->display('formularioEditar.tpl');    
 
     }
@@ -62,12 +63,8 @@ class AdministradorView{
         $this->smarty->display('añadirCat.tpl');
     }
     
-<<<<<<< HEAD
     public function mostrarAdminProductos($productos){
         $this->smarty->assign('productos', $productos);
-=======
-    public function mostrarAdminProductos(){
->>>>>>> 2ea999330455eff6cadfd3cb901b57f3c9d55d95
         $this->smarty->display('administrarProductos.tpl');
 
     }

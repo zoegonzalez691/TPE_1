@@ -1,4 +1,4 @@
-{include 'header.tpl'}
+
 
 <h1> Panel para administrar los productos</h1>
  <a href="agregarProducto"><button> Agregar Producto</button></a>
@@ -16,8 +16,8 @@
            {foreach item=producto from=$productos}
            <tr>   
                <td>{$producto->nombre} <a href="productos/{$producto->id_producto}">Ver mas</a></td>
-               <td><a href="editarProducto"><button>Editar</button></a></td>
-               <td><a href="eliminarProducto"><button>Eliminar</button></a></td>
+               <td><a href="editarProducto/{$producto->id_producto}"><button>Editar</button></a></td>
+               <td><a href="eliminarProducto/{$producto->id_producto}"><button>Eliminar</button></a></td>
            </tr>
            {/foreach}
      </table>   

@@ -1,4 +1,4 @@
-{include 'header.tpl'}
+
 
 <form id="formulario" action="" method="post">
     <label>Seleccione categoría</label>

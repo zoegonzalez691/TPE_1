@@ -52,8 +52,11 @@
     public function  mostrarProductoPorID($id){
       $producto= $this->productosModel->traerPorID($id);
       $this->productosView->mostrarProductoPorID($producto);
-     
+    }
 
+    public function traerProductoID($id){
+      $producto= $this->productosModel->traerPorID($id);
+      return $producto;
     }
 
     public function VerProductosCategorias($Categoria) {
@@ -62,6 +65,22 @@
       $this->productosView->MostrarProductos($CategoriaName, $productos);
       
     }
+
+    public function eliminarPorID($id){
+      $this->productosModel->eliminarProducto($id);
+    }
+
+    public function guardarProducto($nombre,$descripcion,$precio,$destacado,$imagen,$categoria){
+      $productoNuevo= $this->productosModel->guardarProductos($nombre,$descripcion,$precio,$destacado,$imagen,$categoria);
+
+      return $productoNuevo;
+    }
+
+   public function guardarCambios($nombre,$descripcion,$precio,$destacado,$imagen,$categoria,$id){
+     $cambios= $this->productosModel->guardarCambiosProducto($nombre,$descripcion,$precio,$destacado,$imagen,$categoria,$id);
+
+     return $cambios;
+   }
 
   public function BotonDeSesion(){
         $this->checkLogin();
@@ -74,6 +93,8 @@
         header('location:'. 'home');
     
     }
+
+   
   
 
   }

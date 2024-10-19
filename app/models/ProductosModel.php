@@ -64,9 +64,44 @@
 
       }
 
-      
+      public function eliminarProducto($id){
+         $db = $this-> crearConexion();
+         $sentencia= $db-> prepare("DELETE FROM productos WHERE id_producto = ?");
+         $sentencia-> execute([$id]);
+      } 
 
-    
+      public function guardarProductos($nombre,$descripcion,$precio,$destacado,$imagen,$categoria){
+         $db= $this->crearConexion();
+         $sentencia= $db->prepare("INSERT INTO productos (`nombre`,`descripcion`,`precio`, `destacado`,`imagen`,`fk_categoria`) VALUES(?,?,?,?,?,?)");
+         try{
+            $sentencia->execute([$nombre,$descripcion,$precio,$destacado,$imagen,$categoria]);
+            $productoNuevo= $sentencia-> fetch(PDO::FETCH_OBJ);
+     
+            return $productoNuevo;
+            }
+            catch(\Throwable $th){
+            echo $th;
+            die(__file__);
+            return null;
+            }
+      }
+
+      public function guardarCambiosProducto($nombre,$descripcion,$precio,$destacado,$imagen,$categoria,$id){
+         $db= $this->crearConexion();
+         $sentencia= $db->prepare("UPDATE productos SET `nombre`= ?, `descripcion`= ?,`imagen`=?,`fk_categoria`=?,`precio`= ?,`destacado`=? WHERE id_producto= ?");
+         try{
+            $sentencia->execute([$nombre,$descripcion,$imagen,$categoria,$precio,$destacado,$id]);
+            $productoModificado= $sentencia->fetch(PDO::FETCH_OBJ);
+      
+            return $productoModificado;
+         }
+         catch(\Throwable $th){
+            echo $th;
+            die(__file__);
+            return null;
+         }
+      }
+      
 }
 
 
