@@ -1,5 +1,3 @@
-
-
 <h1> Panel para administrar los productos</h1>
  <a href="agregarProducto"><button> Agregar Producto</button></a>
 
@@ -22,5 +20,4 @@
            {/foreach}
      </table>   
 </div>
-
 {include 'footer.tpl'}

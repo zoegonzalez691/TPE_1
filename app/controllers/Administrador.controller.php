@@ -64,8 +64,17 @@ public function agregarProducto(){
     $categoria = $_POST['fk_categoria'];
     $precio= $_POST['precio'];
     $destacado= $_POST['destacado'];
-    $imagen = $_POST['imagen'];
-    $productoNuevo= $this->controllerProductos->guardarProducto($nombre,$descripcion,$precio,$destacado,$imagen,$categoria);
+    $_FILES = ['input_name']['type'];
+    if($_FILES['input_name']['type'] == "image/jpg" ||
+     $_FILES['input_name']['type'] == "image/jpeg" ||
+      $_FILES['input_name']['type'] == "image/png" ) {
+        $productoNuevo= $this->controllerProductos->guardarProducto($nombre,$descripcion,$precio,$destacado,$categoria,$_FILES = ['input_name']['tmp_name']);
+    }
+    else{
+        $productoNuevo= $this->controllerProductos->guardarProducto($nombre,$descripcion,$precio,$destacado,$categoria);
+        
+    }
+
     $this->controllerProductos->mostrarProductos($productoNuevo);
 }
 

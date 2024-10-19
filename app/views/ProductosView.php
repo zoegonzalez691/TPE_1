@@ -15,9 +15,7 @@
          $this->smarty->display('productos.tpl');
       }
      
-      //$this->smarty->assign('NombreVariable', valorVariable);
-      //$this->display->display('nombreDelTemplate');
-      
+   
       public function MostrarProductos($Categoria, $productos) {
          $this->smarty->assign('categoria', $Categoria);
          $this->smarty->assign('productos', $productos);

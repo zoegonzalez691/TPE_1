@@ -70,11 +70,16 @@
          $sentencia-> execute([$id]);
       } 
 
-      public function guardarProductos($nombre,$descripcion,$precio,$destacado,$imagen,$categoria){
+      public function guardarProductos($nombre,$descripcion,$precio,$destacado,$imagen=null,$categoria){
          $db= $this->crearConexion();
-         $sentencia= $db->prepare("INSERT INTO productos (`nombre`,`descripcion`,`precio`, `destacado`,`imagen`,`fk_categoria`) VALUES(?,?,?,?,?,?)");
+         $direccionimg=null;
+           if($imagen){
+               $direccionimg= $this->subirImagen($imagen);
+           }
+         $sentencia= $db->prepare("INSERT INTO productos (`nombre`,`descripcion`,`precio`, `destacado`,`imagen`,`fk_categoria`) 
+         VALUES(?,?,?,?,?,?)");
          try{
-            $sentencia->execute([$nombre,$descripcion,$precio,$destacado,$imagen,$categoria]);
+            $sentencia->execute([$nombre,$descripcion,$precio,$destacado,$direccionimg,$categoria]);
             $productoNuevo= $sentencia-> fetch(PDO::FETCH_OBJ);
      
             return $productoNuevo;
@@ -85,6 +90,14 @@
             return null;
             }
       }
+      
+      public function subirImagen($imagen){
+           $archivo= 'img/producto/' . uniqid() . '.jpg';
+           move_uploaded_file($imagen, $archivo);
+
+           return $archivo;
+      }
+
 
       public function guardarCambiosProducto($nombre,$descripcion,$precio,$destacado,$imagen,$categoria,$id){
          $db= $this->crearConexion();

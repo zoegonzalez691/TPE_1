@@ -1,6 +1,4 @@
-
 {include 'header.tpl'}
-
 
 {if {$logged}}
         <a href= 'logout'><button>Logout</button></a>
@@ -9,18 +7,16 @@
         <a href='login'><button>Login</button></a>
 {/if}
 
-
-{foreach item=destacado from=$destacados}
+{foreach item=destacados from=$destacados}
 <div class="mostrar">
-
-	<ul>
-	<li>{$destacado->nombre}</li>
-	<li>{$destacado->descripcion}</li>
-        <li>{$destacado->imagen}</li>
-        <li>{$destacado->fk_categoria}</li>
-        <li>{$destacado->precio}</li>
-	<li><img href="{$destacado->imagen}"></li>
-        <li>{$destacado->nombre}<a href="productos/{$destacado->id_producto}">Ver mas</a></li>
+    <ul>
+	<li>{$destacados->nombre}</li>
+	<li>{$destacados->descripcion}</li>
+        <li>{$destacados->imagen}</li>
+        <li>{$destacados->fk_categoria}</li>
+        <li>{$destacados->precio}</li>
+	<li><img href="{$destacados->imagen}"></li>
+        <li>{$destacados->nombre}<a href="productos/{$destacados->id_producto}">Ver mas</a></li>
     </ul>
 </div>
 {/foreach}
