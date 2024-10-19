@@ -1,12 +1,13 @@
 <?php
 require_once 'app/views/Administrador.view.php';
 require_once 'app/models/ProductosModel.php';
-require_once 'app/models/Categorias.model.php';
+require_once 'app/controllers/Categorias.controller.php';
+
 class AdministradorController{
 
 private $model;
 private $view;
-private $modelCategoria;
+private $categoriaController;
 
 private function estaLogueado(){
     session_start();
@@ -24,7 +25,7 @@ private function estaLogueado(){
 }
 
 public function __construct(){
-    $this->modelCategoria = new CategoriasModel();
+    $this->categoriaController = new CategoriasController();
     $this->model = new ProductosModel();
     $this->view = new AdministradorView();
 }
@@ -52,7 +53,7 @@ public function eliminarProducto($id){
 
 public function  mostrarFormularioAgregar(){
     $this-> estaLogueado();
-    $categorias= $this-> modelCategoria -> getCategorias();
+    $categorias= $this->categoriaController->TraerCategorias();
     $this-> view-> mostrarFormularioAgregar($categorias);
   
 }
@@ -70,7 +71,7 @@ public function agregarProducto(){
 
 public function editarProducto($id){
     $this-> estaLogueado();
-    $categorias= $this-> modelCategoria -> getCategorias();
+    $categorias= $this->categoriaController->TraerCategorias();
     $producto = $this->model->traerPorID($id);
     $this->view->mostrarFormularioEditar($producto,$categorias);
 }
@@ -95,9 +96,23 @@ public function editarProducto($id){
 
 
 
-}
 
-//Categorias 
+
+    //Categorias 
+
+    public function administrarCat(){
+        $categorias = $this->categoriaController->TraerCategorias();
+        $this->view->MostrarCategorias($categorias);
+
+    }
+
+    public function ModificarCategoria($categoria){
+        $this->estaLogueado();
+        $categoria = $this->model->TraerCategoria($categoria);
+        $this->view->Modificarcategoria($categoria);
+    }
+    
+}
 
 
 

@@ -90,6 +90,12 @@ require_once 'app/views/Categorias.view.php';
 
 
         }
+
+        
+        public function TraerCategorias(){
+            $categorias = $this->model->getCategorias();
+            return $categorias;
+        }
     
         
 

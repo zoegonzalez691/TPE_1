@@ -35,6 +35,20 @@ class AdministradorView{
         $this->smarty->display('formularioEditar.tpl');    
 
     }
+
+    public function MostrarCategorias($categorias){
+        $this->smarty->assign('categorias', $categorias);
+        $this->smarty->display('administrarCategorias.tpl');
+
+    }
+
+    public function Modificarcategoria($categoria){
+        $this->smarty->assign('categoria', $categoria);
+        $this->smarty->display('modificarCat.tpl');
+
+    }
+
+    
 }
   
 

@@ -19,7 +19,7 @@
         <li>{$destacado->imagen}</li>
         <li>{$destacado->fk_categoria}</li>
         <li>{$destacado->precio}</li>
-	<li>{$destacado->imagen}</li>
+	<li><img href="{$destacado->imagen}"></li>
         <li>{$destacado->nombre}<a href="productos/{$destacado->id_producto}">Ver mas</a></li>
     </ul>
 </div>
