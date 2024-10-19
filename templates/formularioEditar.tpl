@@ -32,7 +32,7 @@
                         </div>
                         <div>
                         <label for="fk_categoria"> Categoria </label> 
-                            <select name"fk_categoria">
+                            <select name="fk_categoria">
                                  {foreach item=categoria from= $categorias}
                                  <option value="{$categoria->id_categoria}"> {$categoria->especie_animal} </option>
                                  {/foreach}
@@ -42,7 +42,7 @@
    
                    
                     <div>
-                        <button type="submit">Editar</button>
+                        <input type="submit" value="Editar">
                     </div>
                 </form>            
             </div>

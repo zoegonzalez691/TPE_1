@@ -14,7 +14,7 @@
         </ul>
     </div>
     {/foreach}
-    <a href="panel/productos/agregar/formulario"><button> Agregar Producto</button></a>
+    <a href="formularioAgregar"><button> Agregar Producto</button></a>
 
 <div class="mostrar">
      <table>

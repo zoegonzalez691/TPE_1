@@ -1,6 +1,5 @@
 <?php
 require_once 'app/views/Administrador.view.php';
-require_once 'app/models/ProductosModel.php';
 require_once 'app/controllers/Categorias.controller.php';
 require_once 'app/controllers/ProductosController.php';
 require_once 'app/models/Administrador.model.php';
@@ -14,7 +13,6 @@ private $controllerProductos;
 
 private function estaLogueado(){
     session_start();
-   
    if (!isset($_SESSION['ID_USER'])) {
        header('Location: ' . BASE_URL . 'iniciosesion');
        die();
@@ -42,8 +40,7 @@ public function mostrarPanel(){
 }
 
 public function administrarProductos(){
-      $this->estaLogueado();
-      $this->view->mostrarAdminProductos();
+    $this->view->mostrarAdminProductos();
 }
 
 
@@ -63,14 +60,12 @@ public function  mostrarFormularioAgregar(){
 }
 
 public function agregarProducto(){
-    $this-> estaLogueado();
     $nombre = $_REQUEST['especie_animal'];
     $descripcion = $_REQUEST['descripcion'];
     $categoria = $_REQUEST['fk_categoria'];
     $imagen = $_REQUEST['imagen'];
     $productoNuevo= $this->model->guardarProducto($nombre,$descripcion,$imagen,$categoria);
     $this->view->mostrarProductos($productoNuevo);
-    header('Location:'.BASE_URL.'panel/productos');
 }
 
 public function editarProducto($id){
