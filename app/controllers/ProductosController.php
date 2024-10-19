@@ -55,7 +55,7 @@
       $CategoriaName = $this->CategoriaController->VerNombreCategoria($Categoria);
       $this->productosView->MostrarProductos($CategoriaName, $productos);
       
-  }
+    }
 
   public function BotonDeSesion(){
         $this->checkLogin();
@@ -67,7 +67,7 @@
 
         header('location:'. 'home');
     
-  }
+    }
   
 
   }

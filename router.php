@@ -122,6 +122,28 @@
         break;
        
         
+        case 'ModificarDatos':
+            $controller = new CategoriasController();
+            $this->controller->ModificarDatos();
+        break;
+        case 'EliminarCategoria':
+            if(isset ($parametros[1])){
+                $controller = new CategoriasController();
+                $this->controller->eliminarCategoria($parametros[1]);
+            }
+        break;
+        case 'AgregarCategoria':
+            $controller = new CategoriasController();
+            $controller->añadirCategoria();
+        break;
+        case 'SubirDatos':
+            $controller = new CategoriasController();
+            $controller->subirDatos();
+        break;
+        break; 
+        
+        
         default:;
         break;
     }
+}
