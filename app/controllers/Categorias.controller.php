@@ -39,64 +39,42 @@ require_once 'app/views/Categorias.view.php';
             }
         }
 
-
-        public function SeleccionarCategoria(){
-            $this->checkLogin();
-            $categorias = $this->model->getCategorias();
-            $this->view->Seleccionarcategoria($categorias);
-
-        }
-
-        public function EncontrarCategoria(){
-            $this->checkLogin();
-            $Encontrar = $_REQUEST('opciones');
-            $categoria = $this->model->EncontrarCategoriaByName($Encontrar);
-            $this->view->SeleccionarAccion($categoria);
     
-        }
-
-        public function modificarCategoria($id){
-            $this->checkLogin();
-            $categoria = $this->model->TraerCategoria($id);
-            $this->view->Modificarcategoria($categoria);
-        }
-
-        public function ModificarDatos(){
-            $this->checkLogin();
-            $id = $_REQUEST('id');
-            $especie_animal = $_REQUEST('nombre');
-            $descripcion = $_REQUEST('descripcion');
-
-            $this->model->ModificarCat($id, $especie_animal, $descripcion);
-
-        }
-
-        public function eliminarCategoria($id){
-            $this->checkLogin();
-            $this->model->eliminarCategoria($id);
-        }
-
-        public function añadirCategoria(){
-            $this->checkLogin();
-            $this->view->añadirCat();
-        }
-
-        public function subirDatos(){
-            $this->checkLogin();
-            $nombre = $_REQUEST("nombre");
-            $descripcion = $_REQUEST("descripcion");
-
-            $this->model->crearCategoria($nombre, $descripcion);
-
-
-        }
-
-        
         public function TraerCategorias(){
             $categorias = $this->model->getCategorias();
             return $categorias;
         }
     
+        public function traerCategoria($categoria){
+            $CategoriaCompleta = $this->model->EncontrarCategoriaByName($categoria);
+            
+            return $CategoriaCompleta;
+
+        }
         
+        public function confirmarmodificacion($id, $nombre, $descripcion){
+            $this->model->ModificarCat($id, $nombre, $descripcion);
+        }
+
+        public function EliminarCategoria($categoria){
+            $completado = $this->model->EliminarCategoria($categoria);
+
+            if($completado){
+                return "Se elimino la categoria exitosamente";
+            }else{
+                return "No se puedo eliminar la categoria porque tiene productos asociados";
+            }
+
+        }
+
+        public function añadirCategoria($nombre, $descripcion){
+            $completado = $this->model->crearCategoria($nombre, $descripcion);
+            if($completado){
+                return "Se creo la categoria exitosamente";
+            }else{
+                return "No se pudo crear la categoria";
+            }
+
+        }
 
     }

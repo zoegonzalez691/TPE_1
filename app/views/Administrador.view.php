@@ -36,7 +36,6 @@ class AdministradorView{
 
     }
 
-<<<<<<< HEAD
     public function MostrarCategorias($categorias){
         $this->smarty->assign('categorias', $categorias);
         $this->smarty->display('administrarCategorias.tpl');
@@ -49,14 +48,30 @@ class AdministradorView{
 
     }
 
+    public function MensajeEliminar($mensaje){
+        $this->smarty->assign('mensaje', $mensaje);
+        $this->smarty->display('panelAdministrador.tpl');
+
+
+    }
+
+    public function MensajeAñadir($mensaje){
+        $this->smarty->assign('mensaje', $mensaje);
+        $this->smarty->display('panelAdministrador.tpl');
+
+
+    }
+
+    public function mostrarFormulario(){
+        $this->smarty->display('añadirCat.tpl');
+    }
     
-=======
     public function mostrarAdminProductos(){
         $this->smarty->display('administrarProductos.tpl');
 
     }
->>>>>>> 6927e36fb9eee594032d0dd5f0554d14f2379245
 }
+
   
 
 

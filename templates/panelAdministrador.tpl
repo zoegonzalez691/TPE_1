@@ -5,5 +5,6 @@
     <a href="panel/productos" >Administrar Productos </a>
     <a href='panel/categorias'>Administrar Categorias</a>
     
+    <p>{$mensaje}</p>
     
     {include 'footer.tpl'}

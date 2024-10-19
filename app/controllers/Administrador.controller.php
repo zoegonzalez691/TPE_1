@@ -1,23 +1,16 @@
 <?php
 require_once 'app/views/Administrador.view.php';
-<<<<<<< HEAD
 require_once 'app/models/ProductosModel.php';
 require_once 'app/controllers/Categorias.controller.php';
-
-=======
 require_once 'app/controllers/ProductosController.php';
-require_once 'app/models/Categorias.model.php';
 require_once 'app/models/Administrador.model.php';
->>>>>>> 6927e36fb9eee594032d0dd5f0554d14f2379245
 class AdministradorController{
 
 private $model;
 private $view;
-<<<<<<< HEAD
 private $categoriaController;
-=======
+private $controllerProductos;
 
->>>>>>> 6927e36fb9eee594032d0dd5f0554d14f2379245
 
 private function estaLogueado(){
     session_start();
@@ -35,13 +28,8 @@ private function estaLogueado(){
 }
 
 public function __construct(){
-<<<<<<< HEAD
     $this->categoriaController = new CategoriasController();
-    $this->model = new ProductosModel();
-=======
-    $this->modelCategoria = new CategoriasModel();
     $this->controllerProductos = new ProductosController();
->>>>>>> 6927e36fb9eee594032d0dd5f0554d14f2379245
     $this->view = new AdministradorView();
     $this->model= new AdministradorModel();
 }
@@ -113,7 +101,6 @@ public function editarProducto($id){
 
 
 
-<<<<<<< HEAD
 
     //Categorias 
 
@@ -125,15 +112,49 @@ public function editarProducto($id){
 
     public function ModificarCategoria($categoria){
         $this->estaLogueado();
-        $categoria = $this->model->TraerCategoria($categoria);
+        $categoria = $this->categoriaController->TraerCategoria($categoria);
         $this->view->Modificarcategoria($categoria);
     }
+
+    public function EnviarDatos() {
+        $this->estaLogueado();
+    
+        $id = $_REQUEST['id'];
+        $nombre = $_REQUEST['nombre'];
+        $descripcion = $_REQUEST['descripcion'];
+    
+        $this->categoriaController->confirmarmodificacion($id, $nombre, $descripcion);
+    
+        header('location:' . 'panel');
+    }
+
+    public function EliminarCategoria($categoria){
+        $this->estaLogueado();
+        $mensaje =  $this->categoriaController->EliminarCategoria($categoria);
+
+        $this->view->MensajeEliminar();
+
+    }
+
+    public function crearCategoria(){
+        $this->view->mostrarFormulario();
+    }
+
+    public function añadirCategoria(){
+        $this->estaLogueado();
+
+        $nombre = $_REQUEST['nombre'];
+        $descripcion = $_REQUEST['descripcion'];
+
+        $mensaje = $this->categoriaController->añadirCategoria($nombre, $descripcion);
+        $this->view->MensajeAñadir($mensaje);
+        
+    }
+    
     
 }
 
 
-=======
->>>>>>> 6927e36fb9eee594032d0dd5f0554d14f2379245
 
 
 
