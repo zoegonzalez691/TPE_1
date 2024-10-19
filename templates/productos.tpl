@@ -3,9 +3,9 @@
    <div class="mostrar">
 		<ul>
 	       <li>{$productos->nombre}</li>
-		     {if isset($productos->imagen)}
-                 <li><img src="{$productos->imagen}"/></li>
-             {/if}
+		     
+          <li><img src="{$productos->imagen}"></li>
+            
            <a href="productos/{$productos->id_producto}"><li>Ver mas</li></a>
 		 </ul>
 	</div>

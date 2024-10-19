@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-10-2024 a las 14:15:17
+-- Tiempo de generación: 19-10-2024 a las 23:34:15
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -38,8 +38,10 @@ CREATE TABLE `categorias` (
 --
 
 INSERT INTO `categorias` (`id_categoria`, `especie_animal`, `descripcion`) VALUES
-(1, 'Felino', NULL),
-(2, 'Aves', NULL);
+(1, 'Felinos', 'Productos aptos para felinos de diferentes edades y razas'),
+(2, 'Roedores', 'Productos para roedores como hamsters o cobayos, entre otros'),
+(9, 'Caninos', 'Productos para la calidad de vida de caninos'),
+(10, 'Peces', 'Producto para animales acuaticos de agua dulce');
 
 -- --------------------------------------------------------
 
@@ -62,8 +64,10 @@ CREATE TABLE `productos` (
 --
 
 INSERT INTO `productos` (`id_producto`, `nombre`, `descripcion`, `imagen`, `fk_categoria`, `precio`, `destacado`) VALUES
-(1, 'Cepillo', 'jajs', 'jsbax', 1, 94, 1),
-(2, 'Jaula', 'jxnaidia', 'hxbkahbxa', 2, 99, 0);
+(1, 'Casa-Rascador', 'Casa y rascador apto para gatos. \r\nAltura: 54cm \r\nViene tambien con un colgante para que juegue. \r\nColor a eleccion (Disponible en rosa, rojo, azul, violeta, naranja)', 'https://i.pinimg.com/236x/9f/3e/56/9f3e5682517588df04b6f4d398d3cdb1.jpg', 1, 25690, 1),
+(2, 'Casa-Jaula para hamster', 'Jaula de tamaño considerable para que le des a tu hmaster la calidad de vida que mrece. \r\nCuenta con diferentes niveles para que el hasmter pueda divertirse.\r\nDisponibles en 5 diferentes colores.', 'https://i.pinimg.com/236x/86/77/e5/8677e5fa317970fddae3a47dbe37389b.jpg', 2, 17890, 0),
+(5, 'Comedero Elevado ', 'Comedero elevado, de 30cm para perros de raza grande.\r\nApto para la prevencion de enfermedades relacionadas a la columna.', 'https://i.pinimg.com/564x/ae/9a/87/ae9a8752535d8a00ec151006133a94b9.jpg', 9, 0, 1),
+(6, 'Huesos de colores', 'Huesos para cachorros de tela, apto para los dientes. Disponibles en diferentes colores (azul, verde, rosa, rojo, amarillo)', 'https://i.pinimg.com/474x/37/2d/9d/372d9ddbb3ffd1ebf1df4cfb1f549084.jpg', 9, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -78,6 +82,13 @@ CREATE TABLE `usuarios` (
   `es_admin` tinytext DEFAULT NULL,
   `contraseña` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`usuario_id`, `nombre`, `mail`, `es_admin`, `contraseña`) VALUES
+(1, 'Webadmin', 'webadmin@gmail.com', 'si', '$2y$10$yELDzZN/41wsn/kn5jpRhOGXt9MGcalVhmUgdr5PsTJGWk54IZbiG');
 
 --
 -- Índices para tablas volcadas
@@ -104,13 +115,13 @@ ALTER TABLE `productos`
 -- AUTO_INCREMENT de la tabla `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
 --
 ALTER TABLE `productos`
-  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas

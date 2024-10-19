@@ -71,7 +71,7 @@
     }
 
     public function guardarProducto($nombre,$descripcion,$precio,$destacado,$imagen,$categoria){
-      $productoNuevo= $this->productosModel->guardarProductos($nombre,$descripcion,$precio,$destacado,$imagen,$categoria);
+       $productoNuevo= $this->productosModel->guardarProductos($nombre,$descripcion,$precio,$destacado,$imagen,$categoria);
 
       return $productoNuevo;
     }
