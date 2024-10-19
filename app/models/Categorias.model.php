@@ -66,7 +66,11 @@ class CategoriasModel{
         $pdo = $this->CrearConexion();
         $sql = 'DELETE FROM categorias WHERE id = ?';
         $query = $pdo->prepare($sql);
-        $query->execute($id);
+        try {
+            $query->execute($id);
+        } catch (\Throwable $th) {
+            var_dump("No se puede elimiar categoria");
+        }
 
 
     }

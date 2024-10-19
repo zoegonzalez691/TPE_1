@@ -36,10 +36,26 @@ class AdministradorView{
 
     }
 
+<<<<<<< HEAD
+    public function MostrarCategorias($categorias){
+        $this->smarty->assign('categorias', $categorias);
+        $this->smarty->display('administrarCategorias.tpl');
+
+    }
+
+    public function Modificarcategoria($categoria){
+        $this->smarty->assign('categoria', $categoria);
+        $this->smarty->display('modificarCat.tpl');
+
+    }
+
+    
+=======
     public function mostrarAdminProductos(){
         $this->smarty->display('administrarProductos.tpl');
 
     }
+>>>>>>> 6927e36fb9eee594032d0dd5f0554d14f2379245
 }
   
 

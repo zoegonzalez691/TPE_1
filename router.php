@@ -39,6 +39,7 @@
                 $controller->MostrarCategorias();
             }
         break;
+        //Loguear Usuario
         case 'login':
             $controller = new UsersController();
             $controller->VerUsuario();
@@ -47,6 +48,11 @@
             $controller = new UsersController();
             $controller->autenticarUsuario();
         break;
+        case 'logout':
+            $controller = new UsersController();
+            $controller->cerrarSesion();
+        break;
+        //Acciones administrador
         case'panel':
              $controller= new AdministradorController();
              $controller-> mostrarPanel(); 
@@ -60,6 +66,7 @@
                     $controller->administrarCat();
                 }
             }
+<<<<<<< HEAD
         break;  
         case 'formularioAgregar':
             $controller= new AdministradorController();
@@ -80,17 +87,35 @@
         case 'logout':
             $controller = new UsersController();
             $controller->cerrarSesion();
-        break;
-        case 'ElegirCat':
-            $controller = new CategoriasController();
-            $controller->EncontrarCategoria();
-        break;
-        case 'ModificarCategoria':
-            if(isset($parametros[1])){
-                $controller = new CategoriasController();
-                $this->controller->modificarCategoria($parametros[1]);
+=======
+            //cuando es solo /panel
+            else{
+            $controller = new AdministradorController();
+            $controller-> mostrarPanel();
             }
+        break;    
+        case 'modificarCat':
+            $controller = new AdministradorController();
+            if($parametros[1]){
+                $this->controller->ModificarCategoria($parametros[1]);
+            };
+>>>>>>> 917833fb12c946449c4abc8c997104cb03ced725
         break;
+        case 'eliminarCat':
+            $controller = new AdministradorController();
+            if($parametros[1]){
+                $this->controller->EliminarCategoria($parametros[1]);
+            };
+        break;
+        case 'AñadirCat': 
+            $controller = new AdministradorController();
+            if($parametros[1]){
+            
+            
+            $this->controller->añadirCat();
+        break;
+       
+        
         case 'ModificarDatos':
             $controller = new CategoriasController();
             $this->controller->ModificarDatos();
@@ -115,3 +140,4 @@
         default:;
         break;
     }
+}
