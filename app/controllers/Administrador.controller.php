@@ -9,7 +9,7 @@ class AdministradorController{
 private $model;
 private $view;
 private $categoriaController;
-private $productoController;
+private $controllerProductos;
 
 
 private function estaLogueado(){
@@ -110,5 +110,17 @@ public function ModificarCategoria($categoria){
     $categoria = $this->model->TraerCategoria($categoria);
     $this->view->Modificarcategoria($categoria);
 }
+
+
+
+
+
+
+
+
+
+
+
+
 }
 ?>
