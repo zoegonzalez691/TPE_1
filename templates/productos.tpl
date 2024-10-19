@@ -1,15 +1,14 @@
     {include 'header.tpl'}
 
-	{foreach item=producto from=$productos}
+	{foreach item=productos from=$productos}
     <div class="mostrar">
 		<ul>
-			<li>{$producto->nombre}</li>
-			<li>{$producto->descripcion}</li>
-            <li>{$producto->imagen}</li>
-            <li>{$producto->fk_categoria}</li>
-            <li>{$producto->precio}</li>
-            <a href="productos/{$producto->id_producto}"><li>Ver mas</li></a>
-			<li>{$producto->nombre} <a href="productos/{$producto->id_producto}">Ver mas</a></li>
+			<li>{$productos->nombre}</li>
+		
+            <li>{$productos->imagen}</li>
+          
+            <a href="productos/{$productos->id_producto}"><li>Ver mas</li></a>
+			<li>{$productos->nombre} <a href="productos/{$productos->id_producto}">Ver mas</a></li>
 		   
         </ul>
     </div>

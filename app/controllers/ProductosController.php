@@ -32,6 +32,12 @@
         $productos= $this->productosModel->traerTodos();
         //Le paso a la vista los productos que recibo de la db
         $this->productosView->mostrarTodos($productos);
+       
+    }
+
+    public function traerProductos(){
+      $productos= $this-> productosModel->traerTodos();
+      return $productos;
     }
 
     public function mostrarProductosDestacados(){

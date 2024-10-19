@@ -1,23 +1,18 @@
 <?php
 require_once 'app/views/Administrador.view.php';
-<<<<<<< HEAD
-require_once 'app/models/ProductosModel.php';
-require_once 'app/controllers/Categorias.controller.php';
-
-=======
 require_once 'app/controllers/ProductosController.php';
-require_once 'app/models/Categorias.model.php';
+require_once 'app/controllers/Categorias.controller.php';
 require_once 'app/models/Administrador.model.php';
->>>>>>> 6927e36fb9eee594032d0dd5f0554d14f2379245
+
+
+
 class AdministradorController{
 
 private $model;
 private $view;
-<<<<<<< HEAD
 private $categoriaController;
-=======
+private $productoController;
 
->>>>>>> 6927e36fb9eee594032d0dd5f0554d14f2379245
 
 private function estaLogueado(){
     session_start();
@@ -34,36 +29,26 @@ private function estaLogueado(){
 }
 
 public function __construct(){
-<<<<<<< HEAD
     $this->categoriaController = new CategoriasController();
-    $this->model = new ProductosModel();
-=======
-    $this->modelCategoria = new CategoriasModel();
     $this->controllerProductos = new ProductosController();
->>>>>>> 6927e36fb9eee594032d0dd5f0554d14f2379245
     $this->view = new AdministradorView();
     $this->model= new AdministradorModel();
-}
-
-
-
+}    
+    
 public function mostrarPanel(){
     $this->estaLogueado();
     $this->view->mostrarPanel();
 }
 
 public function administrarProductos(){
-    $this->view->mostrarAdminProductos();
+    $productos= $this->controllerProductos->traerProductos();
+    $this->view->mostrarAdminProductos($productos);
 }
-
-
 
 public function eliminarProducto($id){
-    $this-> estaLogueado();
-    $this-> model-> eliminarPorID($id);
-    $this->view-> mostrarAdminProductos();
-}
-
+     $this-> model-> eliminarPorID($id);
+}   
+   
 
 public function  mostrarFormularioAgregar(){
     $this-> estaLogueado();
@@ -73,12 +58,12 @@ public function  mostrarFormularioAgregar(){
 }
 
 public function agregarProducto(){
-    $nombre = $_REQUEST['especie_animal'];
-    $descripcion = $_REQUEST['descripcion'];
-    $categoria = $_REQUEST['fk_categoria'];
-    $imagen = $_REQUEST['imagen'];
+    $nombre = $_POST['especie_animal'];
+    $descripcion = $_POST['descripcion'];
+    $categoria = $_POST['fk_categoria'];
+    $imagen = $_POST['imagen'];
     $productoNuevo= $this->model->guardarProducto($nombre,$descripcion,$imagen,$categoria);
-    $this->view->mostrarProductos($productoNuevo);
+    $this->controllerProductos->mostrarProductos($productoNuevo);
 }
 
 public function editarProducto($id){
@@ -88,48 +73,37 @@ public function editarProducto($id){
     $this->view->mostrarFormularioEditar($producto,$categorias);
 }
 
- //   //Modifica una tarea
-   // public function modificar(){
-     //   $this->checkLogin();
 
+public function administrarCat(){
+    $categorias = $this->categoriaController->TraerCategorias();
+    $this->view->MostrarCategorias($categorias);
 
-        //Tomo datos del formulario
-       // $id = $_REQUEST['id'];
-        //$descripcion = $_REQUEST['descripcion'];
-        //$terminada = $_REQUEST['terminada'];
-        //$prioridad = $_REQUEST['prioridad'];
+}
 
-        //Envío datos al modelo
-       // $this->model->updateTask($descripcion, $terminada, $prioridad, $id);
-        
-        //Redirecciono
-        //header('Location: ' . BASE_URL . 'home');
-   // }
+public function ModificarCategoria($categoria){
+    $this->estaLogueado();
+    $categoria = $this->model->TraerCategoria($categoria);
+    $this->view->Modificarcategoria($categoria);
+}
 
 
 
 
-<<<<<<< HEAD
 
-    //Categorias 
 
-    public function administrarCat(){
-        $categorias = $this->categoriaController->TraerCategorias();
-        $this->view->MostrarCategorias($categorias);
 
-    }
+ 
 
-    public function ModificarCategoria($categoria){
-        $this->estaLogueado();
-        $categoria = $this->model->TraerCategoria($categoria);
-        $this->view->Modificarcategoria($categoria);
-    }
+
+
+
+
+
+
     
 }
 
 
-=======
->>>>>>> 6927e36fb9eee594032d0dd5f0554d14f2379245
 
 
 

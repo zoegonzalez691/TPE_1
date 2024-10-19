@@ -9,7 +9,17 @@
    <label for="descripcion"> Descripcion </label> 
     <input name="descripcion" type="text">
 
-   <label for="imagen"> URL imagen </label> 
+  <label for="precio">Precio </label> 
+    <input name="precio" type="text">
+
+
+ <label for="destacado">Destacado</label> 
+   <select name="destacado">
+   <option value="si">Si</option>
+   <option value="no">No</option>
+   </select>
+
+ <label for="imagen"> URL imagen </label> 
     <input name="imagen" type="text">
 
   <label for="fk_categoria"> Categoria </label> 

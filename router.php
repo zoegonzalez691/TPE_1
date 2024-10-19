@@ -66,19 +66,21 @@
                     $controller->administrarCat();
                 }
             }
-<<<<<<< HEAD
         break;  
-        case 'formularioAgregar':
+        case 'agregarProducto':
             $controller= new AdministradorController();
             $controller-> mostrarFormularioAgregar();
         break; 
         case 'guardarProducto': 
-        $controller= new AdministradorController();
-        $controller-> agregarProducto();
+            $controller= new AdministradorController();
+            $controller-> agregarProducto();
         break;
         case 'eliminarProducto':
-        $controller= new AdministradorController();
-        $controller-> eliminarProducto($parametros[1]);
+            $controller= new AdministradorController();
+
+            if(isset($parametros[1])){
+                $controller-> eliminarProducto($parametros[1]);
+            }
         break;
         case 'editarProducto':
         $controller= new AdministradorController();
@@ -87,19 +89,16 @@
         case 'logout':
             $controller = new UsersController();
             $controller->cerrarSesion();
-=======
-            //cuando es solo /panel
-            else{
-            $controller = new AdministradorController();
-            $controller-> mostrarPanel();
-            }
+          //  else{
+            //$controller = new AdministradorController();
+            //$controller-> mostrarPanel();
+            //}
         break;    
         case 'modificarCat':
             $controller = new AdministradorController();
             if($parametros[1]){
                 $this->controller->ModificarCategoria($parametros[1]);
             };
->>>>>>> 917833fb12c946449c4abc8c997104cb03ced725
         break;
         case 'eliminarCat':
             $controller = new AdministradorController();
@@ -113,6 +112,7 @@
             
             
             $this->controller->añadirCat();
+            }
         break;
        
         
@@ -134,10 +134,6 @@
             $controller = new CategoriasController();
             $controller->subirDatos();
         break;
-        break; 
-        
-        
-        default:;
-        break;
+       
     }
-}
+?>
