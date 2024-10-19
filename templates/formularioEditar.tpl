@@ -5,7 +5,7 @@
             <h4>Editar Producto</h4>
        </section>
        <section>
-            <form method="post" action="guardarCambios" class="mostrar">
+            <form method="post" action="guardarCambios" class="mostrar" enctype="multipart/form-data>
                 <div>
                    <label for="nombre">Nombre</label>
                     <input  
@@ -34,14 +34,14 @@
                               <option value="1">Si</option>
                               <option value="0">No</option>
                           </select>
-                    </div>          
+                    </div> 
                     <div>
-                       <label for="imagen">Imagen</label>
-                            <input 
-                                value="{$producto->imagen} "
-                                type="text" 
-                                name="imagen">
-                    </div>
+                        <label for="imagen"> URL imagen </label> 
+                        <input name="imagen" 
+                        type="text" 
+                        value= "{$producto->imagen}"
+                        >
+                    </div>         
                     <div>
                         <label for="fk_categoria"> Categoria </label> 
                             <select name="fk_categoria">

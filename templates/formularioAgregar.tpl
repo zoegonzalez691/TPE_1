@@ -2,7 +2,7 @@
 
 <h1>Formulario para agregar un producto</h1>
 
-<form action="guardarProducto" method="POST" enctype="multipart/form-data" > 
+<form action="guardarProducto" method="POST" > 
   <label for="nombre"> Nombre </label> 
     <input name="nombre" type="text">
 
@@ -20,7 +20,7 @@
    </select>
 <div>
  <label for="imagen"> URL imagen </label> 
-    <input name="imagen" type="file" id="subir_imagen">
+    <input name="imagen" type="text">
 </div>
   <label for="fk_categoria"> Categoria </label> 
     <select name="fk_categoria">

@@ -11,12 +11,8 @@
 <div class="mostrar">
     <ul>
 	<li>{$destacados->nombre}</li>
-	<li>{$destacados->descripcion}</li>
-        <li>{$destacados->imagen}</li>
-        <li>{$destacados->fk_categoria}</li>
-        <li>{$destacados->precio}</li>
-	<li><img href="{$destacados->imagen}"></li>
-        <li>{$destacados->nombre}<a href="productos/{$destacados->id_producto}">Ver mas</a></li>
+        <li><img src="{$destacados->imagen}"/></li>
+       <li><a href="productos/{$destacados->id_producto}">Ver mas</a></li>
     </ul>
 </div>
 {/foreach}
