@@ -44,13 +44,35 @@ class AdministradorView{
 
     }
 
+    public function MensajeEliminar($mensaje){
+        $this->smarty->assign('mensaje', $mensaje);
+        $this->smarty->display('panelAdministrador.tpl');
+
+
+    }
+
+    public function MensajeAñadir($mensaje){
+        $this->smarty->assign('mensaje', $mensaje);
+        $this->smarty->display('panelAdministrador.tpl');
+
+
+    }
+
+    public function mostrarFormulario(){
+        $this->smarty->display('añadirCat.tpl');
+    }
     
+<<<<<<< HEAD
     public function mostrarAdminProductos($productos){
         $this->smarty->assign('productos', $productos);
+=======
+    public function mostrarAdminProductos(){
+>>>>>>> 2ea999330455eff6cadfd3cb901b57f3c9d55d95
         $this->smarty->display('administrarProductos.tpl');
 
     }
 }
+
   
 
 

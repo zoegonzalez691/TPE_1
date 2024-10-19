@@ -56,20 +56,21 @@ class CategoriasModel{
 
     public function ModificarCat($id, $especie_animal, $descripcion){
         $pDO = $this->crearConexion();
-        $sql = 'UPDATE categoria SET especie_animal = ?, descrpcion = ? WHERE id = ?';
+        $sql = 'UPDATE categorias SET especie_animal = ?, descripcion = ? WHERE id_categoria = ?';
         $query = $pDO->prepare($sql);
         $query->execute([$especie_animal, $descripcion, $id]);
         
     }
 
-    public function eliminarCategoria($id){
+    public function eliminarCategoria($nombre){
         $pdo = $this->CrearConexion();
-        $sql = 'DELETE FROM categorias WHERE id = ?';
+        $sql = 'DELETE FROM categorias WHERE especie_animal = ?';
         $query = $pdo->prepare($sql);
         try {
-            $query->execute($id);
+            $query->execute([$nombre]);
+            return true;
         } catch (\Throwable $th) {
-            var_dump("No se puede elimiar categoria");
+            return false;
         }
 
 
@@ -79,10 +80,13 @@ class CategoriasModel{
         $pdo = $this->CrearConexion();
         $sql = 'INSERT INTO categorias (especie_animal, descripcion) VALUES (? , ?)';
         $query = $pdo->prepare($sql);
-        $query->execute([$nombre, $descripcion]);
-           
-    }
-    
-        
+        try{
+            $query->execute([$nombre, $descripcion]);
+            return true;
+        }catch (\Throwable $th) {
+                return false;
+            }
+       
+    }      
 
 }

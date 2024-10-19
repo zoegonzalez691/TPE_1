@@ -89,16 +89,20 @@
         case 'logout':
             $controller = new UsersController();
             $controller->cerrarSesion();
+<<<<<<< HEAD
           //  else{
             //$controller = new AdministradorController();
             //$controller-> mostrarPanel();
             //}
+=======
+>>>>>>> 2ea999330455eff6cadfd3cb901b57f3c9d55d95
         break;    
-        case 'modificarCat':
-            $controller = new AdministradorController();
-            if($parametros[1]){
-                $this->controller->ModificarCategoria($parametros[1]);
+        case 'ModificarCategoria':
+            if(isset ($parametros[1])){
+                $controller = new AdministradorController();
+                $controller->ModificarCategoria($parametros[1]);
             };
+<<<<<<< HEAD
         break;
         case 'eliminarCat':
             $controller = new AdministradorController();
@@ -119,16 +123,28 @@
         case 'ModificarDatos':
             $controller = new CategoriasController();
             $this->controller->ModificarDatos();
+=======
+>>>>>>> 2ea999330455eff6cadfd3cb901b57f3c9d55d95
         break;
         case 'EliminarCategoria':
-            if(isset ($parametros[1])){
-                $controller = new CategoriasController();
-                $this->controller->eliminarCategoria($parametros[1]);
-            }
+            if(isset($parametros[1])){
+                $controller = new AdministradorController();
+                $controller->EliminarCategoria($parametros[1]);
+            };
         break;
-        case 'AgregarCategoria':
-            $controller = new CategoriasController();
+        case 'AñadirCategoria': 
+            $controller = new AdministradorController();
+            $controller->crearCategoria();
+           
+        break;
+        case 'actualizar':
+            $controller = new AdministradorController();
+            $controller->EnviarDatos();
+        break;
+        case 'agregar':
+            $controller = new AdministradorController();
             $controller->añadirCategoria();
+<<<<<<< HEAD
         break;
         case 'SubirDatos':
             $controller = new CategoriasController();
@@ -137,3 +153,10 @@
        
     }
 ?>
+=======
+        break;       
+        default:;
+        break;
+    
+}
+>>>>>>> 2ea999330455eff6cadfd3cb901b57f3c9d55d95

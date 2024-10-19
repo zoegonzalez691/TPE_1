@@ -1,17 +1,27 @@
 <?php
 require_once 'app/views/Administrador.view.php';
+<<<<<<< HEAD
 require_once 'app/controllers/ProductosController.php';
 require_once 'app/controllers/Categorias.controller.php';
 require_once 'app/models/Administrador.model.php';
 
 
 
+=======
+require_once 'app/controllers/Categorias.controller.php';
+require_once 'app/controllers/ProductosController.php';
+require_once 'app/models/Administrador.model.php';
+>>>>>>> 2ea999330455eff6cadfd3cb901b57f3c9d55d95
 class AdministradorController{
 
 private $model;
 private $view;
 private $categoriaController;
+<<<<<<< HEAD
 private $productoController;
+=======
+private $controllerProductos;
+>>>>>>> 2ea999330455eff6cadfd3cb901b57f3c9d55d95
 
 
 private function estaLogueado(){
@@ -100,6 +110,50 @@ public function ModificarCategoria($categoria){
 
 
 
+<<<<<<< HEAD
+=======
+    public function ModificarCategoria($categoria){
+        $this->estaLogueado();
+        $categoria = $this->categoriaController->TraerCategoria($categoria);
+        $this->view->Modificarcategoria($categoria);
+    }
+
+    public function EnviarDatos() {
+        $this->estaLogueado();
+    
+        $id = $_REQUEST['id'];
+        $nombre = $_REQUEST['nombre'];
+        $descripcion = $_REQUEST['descripcion'];
+    
+        $this->categoriaController->confirmarmodificacion($id, $nombre, $descripcion);
+    
+        header('location:' . 'panel');
+    }
+
+    public function EliminarCategoria($categoria){
+        $this->estaLogueado();
+        $mensaje =  $this->categoriaController->EliminarCategoria($categoria);
+
+        $this->view->MensajeEliminar();
+
+    }
+
+    public function crearCategoria(){
+        $this->view->mostrarFormulario();
+    }
+
+    public function añadirCategoria(){
+        $this->estaLogueado();
+
+        $nombre = $_REQUEST['nombre'];
+        $descripcion = $_REQUEST['descripcion'];
+
+        $mensaje = $this->categoriaController->añadirCategoria($nombre, $descripcion);
+        $this->view->MensajeAñadir($mensaje);
+        
+    }
+    
+>>>>>>> 2ea999330455eff6cadfd3cb901b57f3c9d55d95
     
 }
 
