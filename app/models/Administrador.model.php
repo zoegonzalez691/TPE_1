@@ -25,7 +25,7 @@
 
  public function guardarProducto($nombre,$descripcion,$imagen,$categoria){
     $db= $this->crearConexion();
-    $sentencia= "INSERT INTO productos (nombre, descripcion, imagen, fk_categoria) VALUES(?,?,?,?)";
+    $sentencia= 'INSERT INTO productos (nombre, descripcion, imagen, fk_categoria) VALUES(?,?,?,?)';
     $query = $db->prepare($sentencia);
        try{
        $query->execute([$nombre,$descripcion,$imagen,$categoria]);

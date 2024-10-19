@@ -48,53 +48,35 @@
             $controller->autenticarUsuario();
         break;
         case'panel':
+             $controller= new AdministradorController();
+             $controller-> mostrarPanel(); 
             if(isset($parametros[1])){
-              if($parametros[1]== 'productos'){
-                $controller= new AdministradorController();
-                $controller-> administrarProductos();
-              }else if($parametros[1] == 'categorias'){
-                $controller = new AdministradorController();
-                $controller->administrarCat();
-              }
                 if($parametros[1]== 'productos'){
-                    //aca es panel/productos
-                    if(isset($parametros[2])){
-                        //panel/productos/ID/editar 
-                        if($parametros[3]== 'editar'){
-                            $controller= new AdministradorController();
-                            $controller->editarProducto($parametros[2]);
-                        }
-                        //panel/productos/ID/eliminar 
-                        else if ($parametros[3]== 'eliminar'){
-                            $controller= new AdministradorController();
-                            $controller-> eliminarProducto($parametros[2]);
-                        }
-                        //panel/productos/agregar
-                        else if($parametros[2]== 'agregar'){
-                            if($parametros[3]== 'formulario'){
-                                $controller= new AdministradorController();
-                                $controller-> mostrarFormularioAgregar();
-                            }
-                            else if($parametros[3]== 'guardar'){
-                            $controller= new AdministradorController();
-                            $controller-> agregarProducto();
-                            }
-                        }
-
-                    }
-                    //cuando es solo /panel/productos
-                    else{
-                        $controller= new AdministradorController();
-                        $controller-> administrarProductos(); 
-                    }
+                    $controller= new AdministradorController();
+                    $controller-> administrarProductos();
+                }
+               else if($parametros[1] == 'categorias'){
+                    $controller = new AdministradorController();
+                    $controller->administrarCat();
                 }
             }
-            //cuando es solo /panel
-            else{
-            $controller = new AdministradorController();
-            $controller-> mostrarPanel();
-            }
-        break;    
+        break;  
+        case 'formularioAgregar':
+            $controller= new AdministradorController();
+            $controller-> mostrarFormularioAgregar();
+        break; 
+        case 'guardarProducto': 
+        $controller= new AdministradorController();
+        $controller-> agregarProducto();
+        break;
+        case 'eliminarProducto':
+        $controller= new AdministradorController();
+        $controller-> eliminarProducto($parametros[1]);
+        break;
+        case 'editarProducto':
+        $controller= new AdministradorController();
+        $controller->editarProducto($parametros[1]);
+        break;
         case 'logout':
             $controller = new UsersController();
             $controller->cerrarSesion();
