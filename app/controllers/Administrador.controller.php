@@ -9,7 +9,7 @@ class AdministradorController{
 private $model;
 private $view;
 private $categoriaController;
-private $productoController;
+private $controllerProductos;
 
 
 private function estaLogueado(){
@@ -91,6 +91,8 @@ public function editarProducto($id){
 }
 
 
+//Categorias 
+
 public function administrarCat(){
     $categorias = $this->categoriaController->TraerCategorias();
     $this->view->MostrarCategorias($categorias);
@@ -99,8 +101,47 @@ public function administrarCat(){
 
 public function ModificarCategoria($categoria){
     $this->estaLogueado();
-    $categoria = $this->model->TraerCategoria($categoria);
+    $categoria = $this->categoriaController->TraerCategoria($categoria);
     $this->view->Modificarcategoria($categoria);
 }
+
+public function EnviarDatos() {
+    $this->estaLogueado();
+
+    $id = $_REQUEST['id'];
+    $nombre = $_REQUEST['nombre'];
+    $descripcion = $_REQUEST['descripcion'];
+
+    $this->categoriaController->confirmarmodificacion($id, $nombre, $descripcion);
+
+    header('location:' . 'panel');
+}
+
+public function EliminarCategoria($categoria){
+    $this->estaLogueado();
+    $mensaje =  $this->categoriaController->EliminarCategoria($categoria);
+
+    $this->view->MensajeEliminar($mensaje);
+
+}
+
+public function crearCategoria(){
+    $this->view->mostrarFormulario();
+}
+
+public function añadirCategoria(){
+    $this->estaLogueado();
+
+    $nombre = $_REQUEST['nombre'];
+    $descripcion = $_REQUEST['descripcion'];
+
+    $mensaje = $this->categoriaController->añadirCategoria($nombre, $descripcion);
+    $this->view->MensajeAñadir($mensaje);
+    
+}
+
+
+
+
 }
 ?>
