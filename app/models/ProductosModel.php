@@ -1,21 +1,36 @@
 <?php
    class ProductosModel {
+      protected $db;
 
       //Crea la conexión a la DB
     private function crearConexion () {
   
       try {
-         $db =
+         $this->db =
          new PDO(
          "mysql:host=".dbHost.
          ";dbname=".dbName.";charset=utf8", 
          User, Password);
+         $this->_deploy();
       } catch (\Throwable $th) {
           die($th);
       }
 
-      return $db;
+      return $this->db;
   }
+
+   private function _deploy(){
+      $query = $this->db->query('SHOW TABLES');
+      $tables = $query->fetchAll();
+      if(count($tables) == 0) {
+         $sql =<<<END
+
+       
+
+   END;
+      $this->db->query($sql);
+      }
+   }
 
       public function traerTodos(){
          $db = $this->crearConexion();
