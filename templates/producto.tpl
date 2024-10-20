@@ -1,15 +1,14 @@
 {include 'header.tpl'}
 <div class="mostrar">
-        <ul>
-			<li>{$producto->nombre} </li>
-			<li>{$producto->descripcion}</li>
-            <li><img src="{$producto->imagen}"/></li>
-           
-            <li>{$producto->precio}</li>
-            <li>{$producto->categoria}</li>
-        </ul>
-    </div>
-
-
+ <h2>{$producto->nombre}:</h2>
+<div class="card mb-3">
+       <img src="{$producto->imagen}" class="card-img-top"/>
+       <div class="card-body">
+			<h5 class="card-title">Categoria:{$producto->categoria} </h5>
+			<p class="card-text">{$producto->descripcion}</p>
+            <p class="card-text"><small class="text-body-secondary">Precio:{$producto->precio}</small></p>
+        </div>
+    </div>        
+</div>
 
 {include 'footer.tpl'}

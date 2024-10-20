@@ -1,8 +1,11 @@
-<h1> Panel para administrar los productos</h1>
- <a href="agregarProducto"><button> Agregar Producto</button></a>
+
+<div class="d-grid gap-2">
+<a href="agregarProducto"><button class="btn btn-primary"> Agregar Producto</button></a>
+</div>
+ 
 
 <div class="mostrar">
-     <table>
+     <table class="table table-striped">
        <thead>
            <tr>
               <th>Producto</th>
@@ -14,10 +17,11 @@
            {foreach item=producto from=$productos}
            <tr>   
                <td>{$producto->nombre} <a href="productos/{$producto->id_producto}">Ver mas</a></td>
-               <td><a href="editarProducto/{$producto->id_producto}"><button>Editar</button></a></td>
-               <td><a href="eliminarProducto/{$producto->id_producto}"><button>Eliminar</button></a></td>
+               <td><a href="editarProducto/{$producto->id_producto}"><button class="btn btn-secondary">Editar</button></a></td>
+               <td><a href="eliminarProducto/{$producto->id_producto}"><button class="btn btn-danger">Eliminar</button></a></td>
            </tr>
            {/foreach}
      </table>   
 </div>
+
 {include 'footer.tpl'}

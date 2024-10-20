@@ -40,3 +40,18 @@ ul{
     display: flex;
     justify-content: center;
 }
+#contenedorAdmin{
+    display: flex;
+    justify-content: space-around;
+}
+.tituloAdmin{
+    font-family:  'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#contenedorPanel{
+    display: flex;
+    justify-content: space-between;
+}
+#tituloForm{
+    background-color: black;
+    color: white;
+}
