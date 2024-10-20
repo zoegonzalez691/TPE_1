@@ -7,7 +7,7 @@
 
     <div   class="vstack gap-3">
         <ul class="list-group" >
-           <div class="p-2" <a href="categorias/{$categoria->id_categoria}">
+           <div class="p-2" ><a href="categorias/{$categoria->id_categoria}">
             <li class="list-group-item list-group-item-info">{$categoria->especie_animal}</li>
             </a></div>    
    
