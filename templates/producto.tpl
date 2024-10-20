@@ -1,7 +1,7 @@
 {include 'header.tpl'}
 <div class="mostrar">
  <h2>{$producto->nombre}:</h2>
-<div class="card mb-3">
+<div class="card" style="width: 18rem;">
        <img src="{$producto->imagen}" class="card-img-top"/>
        <div class="card-body">
 			<h5 class="card-title">Categoria:{$producto->categoria} </h5>
@@ -10,5 +10,7 @@
         </div>
     </div>        
 </div>
+
+
 
 {include 'footer.tpl'}
